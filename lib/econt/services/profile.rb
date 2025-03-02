@@ -2,10 +2,9 @@
 
 module Econt
   module Services
-    class Profile < Resource
-      autoload :Profile, "econt/services/profile/profile"
-      def self.resource_url
-        "Profile"
+    module Profile
+      def service_url
+        'Profile'
       end
     end
   end

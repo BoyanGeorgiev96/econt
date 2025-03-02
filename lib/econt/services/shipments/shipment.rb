@@ -3,32 +3,33 @@
 module Econt
   module Services
     module Shipments
-      class Shipment < Shipments
-        resource_type "Shipment"
+      class Shipment < Resource
+        include Econt::Services::Shipments
+        resource_type 'Shipment'
 
         # services/Shipments/ShipmentService.requestCourier.json(.soap?wsdl)
         def request_courier
-          post("requestCourier")
+          post('requestCourier')
         end
 
         # services/Shipments/ShipmentService.createShipment.json(.soap?wsdl)
         def get_shipment_statuses
-          get("getShipmentStatuses")
+          get('getShipmentStatuses')
         end
 
         # services/Shipments/ShipmentService.getShipmentStatuses.json(.soap?wsdl)
         def get_request_courier_status
-          get("getRequestCourierStatus")
+          get('getRequestCourierStatus')
         end
 
         # services/Shipments/ShipmentService.getMyAWB.json(.soap?wsdl)
         def get_my_awb
-          get("getMyAWB")
+          get('getMyAWB')
         end
 
         # services/Shipments/ShipmentService.setITUCode.json(.soap?wsdl)
         def set_itu_code
-          post("setITUCode")
+          post('setITUCode')
         end
       end
     end

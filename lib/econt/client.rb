@@ -1,26 +1,54 @@
 # frozen_string_literal: true
 
-require "faraday"
+require 'faraday'
+require 'json'
+require 'base64'
 
 module Econt
-  # TODO: add description
   class Client
-    BASE_URL = "https://api.imgur.com/3/"
+    class << self
+      attr_reader :instance
 
-    attr_reader :api_key, :adapter
+      def configure
+        @instance ||= new
+        yield(@instance) if block_given?
+        @instance.setup_connection!
+      end
 
-    def initialize(api_key:, adapter: Faraday.default_adapter)
-      @api_key = api_key
-      @adapter = adapter
+      def connection
+        instance&.connection || raise('Econt::Client is not configured. Call Econt::Client.configure first.')
+      end
+    end
+
+    attr_accessor :username, :password, :base_url, :adapter, :debug
+
+    def initialize
+      @base_url = 'https://demo.econt.com/ee/services/' # Default to demo
+      @adapter = Faraday.default_adapter
+    end
+
+    def setup_connection!
+      raise 'Username and password must be set' unless username && password
+
+      @connection = Faraday.new(base_url) do |conn|
+        conn.use Econt::CamelCaseMiddleware # Auto-convert snake_case to camelCase
+        conn.request :json
+        conn.response :json, content_type: 'application/json'
+        conn.response :logger, Logger.new($stdout), bodies: true if debug
+        # conn.response :gzip # ✅ Add this to enable gzip decompression
+        conn.adapter adapter
+        conn.headers['Authorization'] = "Basic #{encoded_credentials}"
+      end
     end
 
     def connection
-      @connection ||= Faraday.new(BASE_URL) do |conn|
-        conn.request :json
-        conn.response :json, content_type: "application/json"
-        conn.adapter adapter
-        conn.headers["Authorization"] = "Bearer #{api_key}" if api_key
-      end
+      @connection || raise('Connection is not initialized. Call Econt::Client.configure first.')
+    end
+
+    private
+
+    def encoded_credentials
+      Base64.strict_encode64("#{username}:#{password}")
     end
   end
 end

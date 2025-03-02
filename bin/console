@@ -1,11 +1,14 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "bundler/setup"
-require "econt"
+require 'bundler/setup'
+require 'econt'
 
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
-
-require "irb"
+require 'irb'
+Econt::Client.configure do |config|
+  config.username = 'iasp-dev'
+  config.password = '1Asp-dev'
+  # config.debug = true
+end
+@b = Econt::Services::Nomenclatures::Nomenclatures.new.get_cities(country_code: 'BGR')
 IRB.start(__FILE__)

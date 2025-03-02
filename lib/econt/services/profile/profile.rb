@@ -3,16 +3,17 @@
 module Econt
   module Services
     module Shipments
-      class Profile < Profile
-        resource_type "Profile"
+      class Profile < Resource
+        include Econt::Services::Profile
+        resource_type 'Profile'
 
         # GET /services/Profile/ProfileService.getClientProfiles.json(.soap?wsdl)
         def get_client_profiles
-          get("getClientProfiles")
+          get('getClientProfiles')
         end
 
         def create_cd_agreement
-          post("createCDAgreement")
+          post('createCDAgreement')
         end
       end
     end

@@ -3,11 +3,12 @@
 module Econt
   module Services
     module Shipments
-      class ThreeWayLogistics < ThreeWayLogistics
-        resource_type "ThreeWayLogistics"
+      class ThreeWayLogistics < Resource
+        include Econt::Services::ThreeWayLogistics
+        resource_type 'ThreeWayLogistics'
 
         def three_way_logistics
-          post("threeWayLogistics")
+          post('threeWayLogistics')
         end
       end
     end
