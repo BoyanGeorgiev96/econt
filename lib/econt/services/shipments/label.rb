@@ -3,7 +3,7 @@
 module Econt
   module Services
     module Shipments
-      class Label < Resource
+      class Label < ServiceResource
         include Econt::Services::Shipments
         resource_type 'Label'
 

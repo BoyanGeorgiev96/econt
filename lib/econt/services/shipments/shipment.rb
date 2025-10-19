@@ -3,7 +3,7 @@
 module Econt
   module Services
     module Shipments
-      class Shipment < Resource
+      class Shipment < ServiceResource
         include Econt::Services::Shipments
         resource_type 'Shipment'
 

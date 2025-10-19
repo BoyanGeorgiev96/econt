@@ -3,7 +3,7 @@
 module Econt
   module Services
     module Shipments
-      class PaymentReport < Resource
+      class PaymentReport < ServiceResource
         include Econt::Services::PaymentReport
         resource_type 'PaymentReport'
       end

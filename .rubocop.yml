@@ -1,8 +1,20 @@
 AllCops:
   TargetRubyVersion: 3.0
 
+AllCops:
+    NewCops: enable
+
 Style/StringLiterals:
   EnforcedStyle: single_quotes
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: single_quotes
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 15
+
+Naming/AccessorMethodName:
+  Enabled: false

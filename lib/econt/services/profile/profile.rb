@@ -3,7 +3,7 @@
 module Econt
   module Services
     module Shipments
-      class Profile < Resource
+      class Profile < ServiceResource
         include Econt::Services::Profile
         resource_type 'Profile'
 

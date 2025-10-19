@@ -3,7 +3,7 @@
 module Econt
   module Services
     module Shipments
-      class ThreeWayLogistics < Resource
+      class ThreeWayLogistics < ServiceResource
         include Econt::Services::ThreeWayLogistics
         resource_type 'ThreeWayLogistics'
 
