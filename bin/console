@@ -10,5 +10,6 @@ Econt::Client.configure do |config|
   config.password = '1Asp-dev'
   # config.debug = true
 end
-@b = Econt::Services::Nomenclatures::Nomenclatures.new.get_cities(country_code: 'BGR')
+@client = Econt::Client.connection
+# @b = Econt::Services::Nomenclatures::Nomenclatures.new.get_cities(country_code: 'BGR')
 IRB.start(__FILE__)

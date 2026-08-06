@@ -3,44 +3,44 @@
 module Econt
   module Services
     module Shipments
-      class Label < Resource
+      class Label < ServiceResource
         include Econt::Services::Shipments
         resource_type 'Label'
 
         # POST /services/Shipments/LabelService.createLabel.json(.soap?wsdl)
         def create_label
-          response = post(resource_url('createLabel'), {})
-          response.body
+          response = post('createLabel')
+          resource(response, Econt::Models::Shipments::CreateLabelResultElement)
         end
 
         # POST /services/Shipments/LabelService.createLabels.json(.soap?wsdl)
         def create_labels
-          response = post(resource_url('createLabels'), {})
-          response.body
+          response = post('createLabels')
+          collection(response, Econt::Models::Shipments::CreateLabelResultElement)
         end
 
-        # POST /services/Shipments/LabelService.deleteLabel.json(.soap?wsdl)
+        # POST /services/Shipments/LabelService.deleteLabels.json(.soap?wsdl)
         def delete_labels
-          response = post(resource_url('deleteLabels'), {})
-          response.body
+          response = post('deleteLabels')
+          collection(response, Econt::Models::Shipments::DeleteLabelsResultElement)
         end
 
         # POST /services/Shipments/LabelService.updateLabel.json(.soap?wsdl)
         def update_label
-          response = post(resource_url('updateLabel'), {})
-          response.body
+          response = post('updateLabel')
+          resource(response, Econt::Models::Shipments::UpdateLabelsResultElement)
         end
 
-        # POST /services/Shipments/LabelService.updateLabels.json(.soap?wsdl)
+        # POST /services/Shipments/LabelService.checkPossibleShipmentEditions.json(.soap?wsdl)
         def check_possible_shipment_editions
-          response = post(resource_url('checkPossibleShipmentEditions'), {})
-          response.body
+          response = post('checkPossibleShipmentEditions')
+          collection(response, Econt::Models::Shipments::CheckPossibleShipmentEditionsResultElement)
         end
 
         # POST /services/Shipments/LabelService.updateLabels.json(.soap?wsdl)
         def update_labels
-          response = post(resource_url('updateLabels'), {})
-          response.body
+          response = post('updateLabels')
+          collection(response, Econt::Models::Shipments::UpdateLabelsResultElement)
         end
       end
     end

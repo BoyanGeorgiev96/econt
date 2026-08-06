@@ -2,19 +2,29 @@ PATH
   remote: .
   specs:
     econt (0.1.0)
+      base64 (~> 0.3)
       faraday (~> 2.12.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    base64 (0.3.0)
+    byebug (12.0.0)
+    date (3.4.1)
     diff-lcs (1.6.0)
+    erb (5.1.1)
     faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
+    io-console (0.8.1)
+    irb (1.15.2)
+      pp (>= 0.6.0)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
     json (2.10.2)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
@@ -25,10 +35,22 @@ GEM
     parser (3.3.7.1)
       ast (~> 2.4.1)
       racc
+    pp (0.6.3)
+      prettyprint
+    prettyprint (0.2.0)
+    psych (5.2.6)
+      date
+      stringio
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.2.1)
+    rdoc (6.15.0)
+      erb
+      psych (>= 4.0.0)
+      tsort
     regexp_parser (2.10.0)
+    reline (0.6.2)
+      io-console (~> 0.5)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -56,6 +78,8 @@ GEM
     rubocop-ast (1.38.1)
       parser (>= 3.3.1.0)
     ruby-progressbar (1.13.0)
+    stringio (3.1.7)
+    tsort (0.2.0)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
@@ -66,7 +90,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  byebug
   econt!
+  irb (~> 1.4, >= 1.4.1)
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.21)
