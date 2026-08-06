@@ -8,7 +8,8 @@ module Econt
         resource_type 'ThreeWayLogistics'
 
         def three_way_logistics
-          post('threeWayLogistics')
+          response = post('threeWayLogistics')
+          resource(response, Econt::Models::ThreeWayLogistics::ThreeWayLogistics)
         end
       end
     end

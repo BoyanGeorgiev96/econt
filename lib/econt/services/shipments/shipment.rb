@@ -12,24 +12,27 @@ module Econt
           post('requestCourier')
         end
 
-        # services/Shipments/ShipmentService.createShipment.json(.soap?wsdl)
+        # services/Shipments/ShipmentService.getShipmentStatuses.json(.soap?wsdl)
         def get_shipment_statuses
-          get('getShipmentStatuses')
+          response = get('getShipmentStatuses')
+          collection(response, Econt::Models::Shipments::ShipmentStatusResultElement)
         end
 
-        # services/Shipments/ShipmentService.getShipmentStatuses.json(.soap?wsdl)
+        # services/Shipments/ShipmentService.getRequestCourierStatus.json(.soap?wsdl)
         def get_request_courier_status
-          get('getRequestCourierStatus')
+          response = get('getRequestCourierStatus')
+          collection(response, Econt::Models::Shipments::RequestCourierStatusResultElement)
         end
 
         # services/Shipments/ShipmentService.getMyAWB.json(.soap?wsdl)
         def get_my_awb
-          get('getMyAWB')
+          response = get('getMyAWB')
+          collection(response, Econt::Models::Shipments::GetMyAwbResultElement)
         end
 
         # services/Shipments/ShipmentService.setITUCode.json(.soap?wsdl)
-        def set_itu_code
-          post('setITUCode')
+        def set_itu_code(awb_barcode:, truck_reg_num:, itu_code:)
+          post('setITUCode', body: { awb_barcode:, truck_reg_num:, itu_code: })
         end
       end
     end

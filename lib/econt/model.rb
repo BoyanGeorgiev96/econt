@@ -5,6 +5,38 @@ module Econt
     include Econt::ResourceAttributes
     include Econt::Util
 
+    class << self
+      def collection_key(value = nil)
+        return @collection_key || Econt::Util.pluralize(name).to_sym unless value
+
+        @collection_key = value
+      end
+
+      def collection(source)
+        Econt::Collection.new(source, model: self, key: collection_key)
+      end
+
+      def build(source, key: nil)
+        data = extract_source(source, key)
+        new(data.is_a?(Hash) ? data : {})
+      end
+
+      private
+
+      def extract_source(source, key)
+        case source
+        when Hash
+          if key && (source.key?(key) || source.key?(key.to_s))
+            source[key] || source[key.to_s]
+          else
+            source
+          end
+        else
+          source
+        end
+      end
+    end
+
     def initialize(attributes = {})
       @attributes = {}
       apply_attributes(attributes)

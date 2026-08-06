@@ -4,6 +4,8 @@ module Econt
   module Models
     module Shipments
       class DeleteLabelsResultElement < Econt::Model
+        collection_key :results
+
         field :shipment_num, type: :string
         field :error, type: Econt::Models::Error
       end

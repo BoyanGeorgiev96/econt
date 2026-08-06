@@ -4,6 +4,8 @@ module Econt
   module Models
     module Shipments
       class GetMyAwbResultElement < Econt::Model
+        collection_key :results
+
         field :shipment_number, type: :string
         field :sender_name, type: :string
         field :status, type: :string

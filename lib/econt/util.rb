@@ -2,6 +2,20 @@
 
 module Econt
   module Util
+    module_function
+
+    def pluralize(word)
+      base = underscore(word.to_s.split('::').last)
+
+      if base.end_with?('y') && !base.end_with?('ay', 'ey', 'iy', 'oy', 'uy')
+        "#{base[0..-2]}ies"
+      elsif base.end_with?('s', 'x', 'z', 'ch', 'sh')
+        "#{base}es"
+      else
+        "#{base}s"
+      end
+    end
+
     def camel_case(str)
       str.gsub(/_([a-z])/) { ::Regexp.last_match(1).upcase }
     end

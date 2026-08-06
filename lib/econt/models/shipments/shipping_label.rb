@@ -35,7 +35,7 @@ module Econt
         field :holiday_delivery_day, type: :string
         field :keep_upright, type: :boolean
         field :services, type: Econt::Models::ShippingLabelServices
-        field :instructions, type: Econt::Models::Instruction
+        field :instructions, type: Econt::Models::Shipments::Instruction
         field :pay_after_accept, type: :boolean
         field :pay_after_test, type: :boolean
         field :packing_list_type, type: :string

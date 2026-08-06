@@ -5,9 +5,7 @@ module Econt
     attr_reader :client
 
     class << self
-      def resource_type(value = nil)
-        return @resource_type unless value
-
+      def resource_type(value = self.name.split('::').last)
         @resource_type = value
       end
     end
@@ -37,9 +35,7 @@ module Econt
     end
 
     def post(url, body: nil, headers: {})
-      response = client.connection.post(url_for(url), body, headers)
-      p "Status: #{response.inspect}"
-      response_for response
+      response_for client.connection.post(url_for(url), body, headers)
     end
 
     def patch(url, body:, headers: {})
@@ -63,6 +59,14 @@ module Econt
       raise Error, error_message if error_message
 
       response
+    end
+
+    def collection(response, model)
+      model.collection(response.body)
+    end
+
+    def resource(response, model, key: nil)
+      model.build(response.body, key: key)
     end
   end
 end

@@ -5,7 +5,7 @@ module Econt
     module Profile
       class CDPayOptions < Econt::Model
         field :num, type: :string
-        field :client, type: Econt::Models::ClientProfile
+        field :client, type: Econt::Models::Profile::ClientProfile
         field :money_transfer, type: :boolean
         field :express, type: :boolean
         field :method, type: :string
@@ -15,7 +15,7 @@ module Econt
         field :bic, type: :string
         field :bank_currency, type: :string
         field :pay_days, type: :integer
-        field :pay_weekdays, type: Econt::Models::Weekday
+        field :pay_weekdays, type: :string
         field :additional_instructions, type: :string
         field :departament_num, type: :integer
       end
