@@ -8,6 +8,7 @@ module Econt
       @model = model
       @key = key
       @items = build_items(source)
+      super()
     end
 
     def each(&block)

@@ -12,4 +12,5 @@ Econt::Client.configure do |config|
 end
 @client = Econt::Client.connection
 # @b = Econt::Services::Nomenclatures::Nomenclatures.new.get_cities(country_code: 'BGR')
+# @b = Econt::Services::Nomenclatures::Nomenclatures.new.get_offices(country_code: 'BGR',city_id: 41)
 IRB.start(__FILE__)
