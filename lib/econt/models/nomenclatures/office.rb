@@ -9,6 +9,8 @@ module Econt
         field :post_code, type: :string
         field :name, type: :string
         field :name_en, type: :string
+        field :phones, type: :array, of: :string
+        field :emails, type: :array, of: :string
         field :region_name, type: :string
         field :region_name_en, type: :string
         field :phone_code, type: :string

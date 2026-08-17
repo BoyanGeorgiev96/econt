@@ -25,6 +25,8 @@ module Econt
     end
 
     def underscore_keys(hash)
+      return hash if primitive_value?(hash)
+
       hash.each_with_object({}) do |(key, value), result|
         result[underscore(key.to_s)] = case value
                                        when Hash
@@ -49,5 +51,12 @@ module Econt
                                        end
       end
     end
+
+    def primitive_value?(value)
+      PRIMITIVE_TYPES.any? { |type| value.is_a?(type) }
+    end
+
+    PRIMITIVE_TYPES = [String, Numeric, TrueClass, FalseClass, NilClass].freeze
+    private_constant :PRIMITIVE_TYPES
   end
 end

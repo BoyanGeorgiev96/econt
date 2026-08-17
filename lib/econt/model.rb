@@ -63,7 +63,7 @@ module Econt
     end
 
     def apply_attributes(new_attributes)
-      new_attributes.each do |key, value|
+      underscore_keys(new_attributes).each do |key, value|
         send("#{key}=", value) if respond_to?("#{key}=")
       end
     end

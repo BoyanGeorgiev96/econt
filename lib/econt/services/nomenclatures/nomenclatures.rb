@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module Econt
   module Services
     module Nomenclatures
@@ -16,6 +15,12 @@ module Econt
           response = post('getCities', body: { country_code: country_code })
           collection(response, Econt::Models::Nomenclatures::City)
           # http://ee.econt.com/services/Nomenclatures/NomenclaturesService.getCities.json(.soap?wsdl)
+        end
+
+        def get_regions(country_code:, language: nil)
+          region_field = language.to_s.casecmp('en').zero? ? :region_name_en : :region_name
+          cities = get_cities(country_code: country_code)
+          cities.filter_map { |city| city.send(region_field) }.uniq.sort
         end
 
         def get_offices(country_code:, city_id: nil, show_cargo_receptions: nil, show_lc: nil, serving_receptions: nil)
