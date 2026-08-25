@@ -46,7 +46,8 @@ module Econt
               @attributes[name]
             end
           when Class
-            opts[:type].new(@attributes[name])
+            value = @attributes[name]
+            value.nil? || value.is_a?(opts[:type]) ? value : opts[:type].new(value)
           else
             @attributes[name]
           end
@@ -81,6 +82,8 @@ module Econt
                                 else
                                   value
                                 end
+                              when Class
+                                value.nil? || value.is_a?(opts[:type]) ? value : opts[:type].new(value)
                               else
                                 value
                               end

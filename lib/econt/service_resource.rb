@@ -31,7 +31,7 @@ module Econt
     }.freeze
 
     def get(url, params: {}, headers: {})
-      client.connection.get(url_for(url), params, headers)
+      response_for client.connection.get(url_for(url), params, headers)
     end
 
     def post(url, body: nil, headers: {})
@@ -55,8 +55,12 @@ module Econt
     end
 
     def response_for(response)
+      error = error_from(response.body)
+      return response if error
+
       error_message = ERROR_MESSAGES[response.status]
-      raise Error, error_message if error_message
+      raise Error.new(error_message, status: response.status) if error_message
+      raise Error.new(status: response.status) unless successful_response?(response)
 
       response
     end
@@ -67,6 +71,14 @@ module Econt
 
     def resource(response, model, key: nil)
       model.build(response.body, key: key)
+    end
+
+    def error_from(body)
+      Econt::Models::Error.build_from(body)
+    end
+
+    def successful_response?(response)
+      response.status.to_i.between?(200, 299)
     end
   end
 end

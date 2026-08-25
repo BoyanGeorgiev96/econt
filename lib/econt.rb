@@ -40,6 +40,8 @@ module Econt
     autoload :HostedFile, 'econt/models/hosted_file'
     module Nomenclatures
       autoload :Address, 'econt/models/nomenclatures/address'
+      autoload :AddressServiceInfo, 'econt/models/nomenclatures/address_service_info'
+      autoload :AddressValidationResponse, 'econt/models/nomenclatures/address_validation_response'
       autoload :City, 'econt/models/nomenclatures/city'
       autoload :Country, 'econt/models/nomenclatures/country'
       autoload :GeoLocation, 'econt/models/nomenclatures/geo_location'

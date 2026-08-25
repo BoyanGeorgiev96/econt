@@ -7,8 +7,15 @@ module Econt
     def initialize(source, model:, key:)
       @model = model
       @key = key
+      @error = Econt::Models::Error.build_from(source)
       @items = build_items(source)
       super()
+    end
+
+    attr_reader :error
+
+    def error?
+      !error.nil?
     end
 
     def each(&block)

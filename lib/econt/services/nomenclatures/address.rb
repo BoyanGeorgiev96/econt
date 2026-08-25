@@ -10,9 +10,9 @@ module Econt
 
         # POST /services/Nomenclatures/AddressService.validateAddress.json(.soap?wsdl)
         def validate_address(address)
-          address = address_to_json(address)
+          address = address_to_hash(address)
           response = post('validateAddress', body: { address: address })
-          resource(response, Econt::Models::Nomenclatures::Address, key: :address)
+          resource(response, Econt::Models::Nomenclatures::AddressValidationResponse)
         end
 
         # POST /services/Nomenclatures/AddressService.addressServiceTimes.json(.soap?wsdl)
@@ -34,11 +34,11 @@ module Econt
 
         private
 
-        def address_to_json(address)
+        def address_to_hash(address)
           if address.is_a?(Econt::Models::Nomenclatures::Address)
-            address.to_json
+            address.to_h
           else
-            Econt::Models::Nomenclatures::Address.new(address).to_json
+            Econt::Models::Nomenclatures::Address.new(address).to_h
           end
         end
       end
