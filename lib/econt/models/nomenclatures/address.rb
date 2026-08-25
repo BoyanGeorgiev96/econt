@@ -14,7 +14,9 @@ module Econt
         field :other, type: :string
         field :location, type: Econt::Models::Nomenclatures::GeoLocation
         field :zip, type: :string
-        field :hezid, :string
+        field :hezid, type: :string
+        field :validation_status, type: :string
+        field :service_info, type: Econt::Models::Nomenclatures::AddressServiceInfo
 
         def validate
           address_service.validate_address(@attributes)

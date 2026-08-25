@@ -39,7 +39,14 @@ module Econt
 
     def initialize(attributes = {})
       @attributes = {}
+      @error = Econt::Models::Error.build_from(attributes) unless is_a?(Econt::Models::Error)
       apply_attributes(attributes)
+    end
+
+    attr_reader :error
+
+    def error?
+      !error.nil?
     end
 
     def method_missing(method_name, *args, &block)
@@ -55,16 +62,31 @@ module Econt
     end
 
     def to_h
-      @attributes
+      deep_to_h(@attributes)
     end
 
     def to_json(*args)
-      camelize_keys(@attributes).to_json(*args)
+      camelize_keys(to_h).to_json(*args)
     end
 
     def apply_attributes(new_attributes)
       underscore_keys(new_attributes).each do |key, value|
         send("#{key}=", value) if respond_to?("#{key}=")
+      end
+    end
+
+    private
+
+    def deep_to_h(value)
+      case value
+      when Econt::Model
+        value.to_h
+      when Hash
+        value.transform_values { |item| deep_to_h(item) }
+      when Array
+        value.map { |item| deep_to_h(item) }
+      else
+        value
       end
     end
   end
