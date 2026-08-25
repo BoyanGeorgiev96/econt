@@ -10,6 +10,8 @@ module Econt
         field :is_aps, type: :boolean
         field :name, type: :string
         field :name_en, type: :string
+        field :phones, type: :array, of: :string
+        field :emails, type: :array, of: :string
         field :phones, type: :array
         field :emails, type: :array
         field :address, type: Econt::Models::Nomenclatures::Address
