@@ -56,6 +56,7 @@ module Econt
 
     def response_for(response)
       error = error_from(response.body)
+      raise Error.new(error: error, status: response.status) if error && server_error?(response)
       return response if error
 
       error_message = ERROR_MESSAGES[response.status]
@@ -79,6 +80,10 @@ module Econt
 
     def successful_response?(response)
       response.status.to_i.between?(200, 299)
+    end
+
+    def server_error?(response)
+      response.status.to_i.between?(500, 599)
     end
   end
 end

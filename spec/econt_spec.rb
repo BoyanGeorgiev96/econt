@@ -62,6 +62,125 @@ RSpec.describe Econt do
     )
   end
 
+  it 'posts label service payloads' do
+    service = Econt::Services::Shipments::Label.allocate
+    response = Struct.new(:body).new({})
+
+    expect(service).to receive(:post).with(
+      'createLabel',
+      body: {
+        label: { shipment_type: 'PACK' },
+        request_courier_time_from: '10:00',
+        request_courier_time_to: '12:00',
+        mode: 'create'
+      }
+    ).and_return(response)
+    expect(service).to receive(:resource).with(
+      response,
+      Econt::Models::Shipments::CreateLabelResultElement
+    )
+    service.create_label(
+      label: { shipment_type: 'PACK' },
+      request_courier_time_from: '10:00',
+      request_courier_time_to: '12:00',
+      mode: 'create'
+    )
+
+    expect(service).to receive(:post).with(
+      'createLabels',
+      body: {
+        labels: [{ shipment_type: 'PACK' }],
+        run_async_and_email_result_to: 'ops@example.test',
+        mode: 'validate'
+      }
+    ).and_return(response)
+    expect(service).to receive(:collection).with(
+      response,
+      Econt::Models::Shipments::CreateLabelResultElement
+    )
+    service.create_labels(
+      labels: [{ shipment_type: 'PACK' }],
+      run_async_and_email_result_to: 'ops@example.test',
+      mode: 'validate'
+    )
+
+    expect(service).to receive(:post).with(
+      'updateLabel',
+      body: {
+        label: { shipment_number: '123' },
+        request_courier_time_from: '13:00',
+        request_courier_time_to: '15:00',
+        destroy: false,
+        payment_addition_price: { amount: 1.23 },
+        payment_instruction: { method: 'cash' }
+      }
+    ).and_return(response)
+    expect(service).to receive(:resource).with(
+      response,
+      Econt::Models::Shipments::UpdateLabelsResultElement
+    )
+    service.update_label(
+      label: { shipment_number: '123' },
+      request_courier_time_from: '13:00',
+      request_courier_time_to: '15:00',
+      destroy: false,
+      payment_addition_price: { amount: 1.23 },
+      payment_instruction: { method: 'cash' }
+    )
+  end
+
+  it 'posts label collection and grouping payloads' do
+    service = Econt::Services::Shipments::Label.allocate
+    response = Struct.new(:body).new({})
+
+    expect(service).to receive(:post).with(
+      'deleteLabels',
+      body: { shipment_numbers: %w[123 456] }
+    ).and_return(response)
+    expect(service).to receive(:collection).with(
+      response,
+      Econt::Models::Shipments::DeleteLabelsResultElement
+    )
+    service.delete_labels(shipment_numbers: %w[123 456])
+
+    expect(service).to receive(:post).with(
+      'checkPossibleShipmentEditions',
+      body: { shipment_nums: [123, 456] }
+    ).and_return(response)
+    expect(service).to receive(:collection).with(
+      response,
+      Econt::Models::Shipments::CheckPossibleShipmentEditionsResultElement
+    )
+    service.check_possible_shipment_editions(shipment_nums: [123, 456])
+
+    expect(service).to receive(:post).with(
+      'updateLabels',
+      body: { labels: [{ label: { shipment_number: '123' } }] }
+    ).and_return(response)
+    expect(service).to receive(:collection).with(
+      response,
+      Econt::Models::Shipments::UpdateLabelsResultElement
+    )
+    service.update_labels(labels: [{ label: { shipment_number: '123' } }])
+
+    expect(service).to receive(:post).with(
+      'grouping',
+      body: { labels: [123, 456] }
+    ).and_return(response)
+    expect(service).to receive(:resource).with(
+      response,
+      Econt::Models::Shipments::ShipmentStatus,
+      key: :label
+    )
+    service.grouping(labels: [123, 456])
+
+    expect(service).to receive(:post).with(
+      'groupingCancelation',
+      body: { group_label: 789 }
+    ).and_return(response)
+    service.grouping_cancelation(group_label: 789)
+  end
+
   it 'builds nested Econt error models' do
     error = Econt::Models::Error.new(
       'type' => 'ExInvalidParam',
@@ -158,7 +277,7 @@ RSpec.describe Econt do
       }
   end
 
-  it 'does not raise for undocumented statuses when the body can be built as an Econt error' do
+  it 'raises Econt::Error for server errors when the body can be built as an Econt error' do
     service = Class.new(Econt::ServiceResource) do
       def service_url
         'Test'
@@ -181,7 +300,12 @@ RSpec.describe Econt do
       }
     )
 
-    expect(service.send(:response_for, response)).to eq(response)
+    expect { service.send(:response_for, response) }
+      .to raise_error(Econt::Error) { |error|
+        expect(error.status).to eq(517)
+        expect(error.error).to be_a(Econt::Models::Error)
+        expect(error.error.inner_errors.first.type).to eq('ExInvalidCity')
+      }
   end
 
   it 'uses the status fallback when an Econt error body has no message' do
