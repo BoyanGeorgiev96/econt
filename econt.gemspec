@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'base64', '~> 0.3'
-  spec.add_dependency 'faraday', '~> 2.12.2'
+  spec.add_dependency 'faraday', '~> 2.14.3'
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
