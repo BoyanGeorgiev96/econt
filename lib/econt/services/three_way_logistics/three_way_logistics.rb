@@ -5,6 +5,7 @@ module Econt
     module Shipments
       class ThreeWayLogistics < ServiceResource
         include Econt::Services::ThreeWayLogistics
+
         resource_type 'ThreeWayLogistics'
 
         def three_way_logistics

@@ -5,6 +5,7 @@ module Econt
     module Shipments
       class Label < ServiceResource
         include Econt::Services::Shipments
+
         resource_type 'Label'
 
         # POST /services/Shipments/LabelService.createLabel.json(.soap?wsdl)

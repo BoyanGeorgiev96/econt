@@ -29,7 +29,7 @@ module Econt
       @adapter = Faraday.default_adapter
       @acronyms = {} # nil to disable, {} to keep defaults
       @replace_acronym_defaults = false
-      @debug    = false
+      @debug = false
     end
 
     def add_acronyms(hash)

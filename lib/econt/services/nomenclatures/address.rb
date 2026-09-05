@@ -6,6 +6,7 @@ module Econt
       # add docs
       class Address < Econt::ServiceResource
         include Econt::Services::Nomenclatures
+
         resource_type 'Address'
 
         # POST /services/Nomenclatures/AddressService.validateAddress.json(.soap?wsdl)

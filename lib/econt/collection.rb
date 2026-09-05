@@ -18,8 +18,8 @@ module Econt
       !error.nil?
     end
 
-    def each(&block)
-      @items.each(&block)
+    def each(&)
+      @items.each(&)
     end
 
     def to_a

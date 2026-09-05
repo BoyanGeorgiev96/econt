@@ -5,6 +5,7 @@ module Econt
     module Shipments
       class Profile < ServiceResource
         include Econt::Services::Profile
+
         resource_type 'Profile'
 
         # POST /services/Profile/ProfileService.getClientProfiles.json(.soap?wsdl)

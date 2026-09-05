@@ -24,6 +24,7 @@ module Econt
       autoload :Address, 'econt/services/nomenclatures/address'
       autoload :Nomenclatures, 'econt/services/nomenclatures/nomenclatures'
     end
+
     module Shipments
       autoload :Label, 'econt/services/shipments/label'
       autoload :Profile, 'econt/services/profile/profile'
@@ -51,11 +52,13 @@ module Econt
       autoload :Street, 'econt/models/nomenclatures/street'
       autoload :WorkingDateTime, 'econt/models/nomenclatures/working_date_time'
     end
+
     module Profile
       autoload :ClientProfile, 'econt/models/profile/client_profile'
       autoload :ProfilesResponseElement, 'econt/models/profile/profiles_response_element'
       autoload :CDPayOptions, 'econt/models/profile/cd_pay_options'
     end
+
     module Shipments
       autoload :RequestCourierStatus, 'econt/models/shipments/request_courier_status'
       autoload :ShipmentStatus, 'econt/models/shipments/shipment_status'
@@ -79,6 +82,7 @@ module Econt
       autoload :UpdateLabelsResultElement, 'econt/models/shipments/update_labels_result_element'
       autoload :Instruction, 'econt/models/shipments/instruction'
     end
+
     module ThreeWayLogistics
       autoload :ThreeWayLogistics, 'econt/models/three_way_logistics/three_way_logistics'
     end

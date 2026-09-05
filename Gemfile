@@ -5,12 +5,16 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in econt.gemspec
 gemspec
 
-gem 'irb', '~> 1.4', '>= 1.4.1'
+group :development do
+  gem 'byebug'
+  gem 'irb'
+end
 
-gem 'rake', '~> 13.0'
+group :development, :test do
+  gem 'rake'
+  gem 'rubocop'
+end
 
-gem 'rspec', '~> 3.0'
-
-gem 'rubocop', '~> 1.21'
-
-gem 'byebug'
+group :test do
+  gem 'rspec'
+end

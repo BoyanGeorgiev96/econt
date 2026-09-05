@@ -5,7 +5,7 @@ module Econt
     attr_reader :client
 
     class << self
-      def resource_type(value = self.name.split('::').last)
+      def resource_type(value = name.split('::').last)
         @resource_type = value
       end
     end
@@ -18,8 +18,6 @@ module Econt
       "#{service_url}/#{self.class.resource_type}Service"
     end
 
-    private
-
     ERROR_MESSAGES = {
       400 => 'Your request was malformed.',
       401 => 'You did not supply valid authentication credentials.',
@@ -29,6 +27,8 @@ module Econt
       500 => 'We were unable to perform the request due to server-side problems.',
       503 => 'You have been rate-limited for sending more than 20 requests per second.'
     }.freeze
+
+    private
 
     def get(url, params: {}, headers: {})
       response_for client.connection.get(url_for(url), params, headers)

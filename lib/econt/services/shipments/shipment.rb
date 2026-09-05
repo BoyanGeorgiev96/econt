@@ -5,6 +5,7 @@ module Econt
     module Shipments
       class Shipment < ServiceResource
         include Econt::Services::Shipments
+
         resource_type 'Shipment'
 
         # services/Shipments/ShipmentService.requestCourier.json(.soap?wsdl)

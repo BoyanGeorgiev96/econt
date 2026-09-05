@@ -18,12 +18,12 @@ module Econt
         def error_body?(source)
           return false unless source.is_a?(Hash)
 
-          has_key?(source, :type) && (has_key?(source, :fields) || has_key?(source, :inner_errors))
+          key?(source, :type) && (key?(source, :fields) || key?(source, :inner_errors))
         end
 
         private
 
-        def has_key?(hash, key)
+        def key?(hash, key)
           hash.key?(key) || hash.key?(Econt::Util.camel_case(key.to_s))
         end
       end

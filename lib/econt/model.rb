@@ -49,7 +49,7 @@ module Econt
       !error.nil?
     end
 
-    def method_missing(method_name, *args, &block)
+    def method_missing(method_name, *args, &)
       if @attributes.key?(method_name)
         @attributes[method_name]
       else

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Econt
   module Services
     module Nomenclatures
