@@ -1,0 +1,40 @@
+name: Release gem
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: 'Type publish to release the current version'
+        required: true
+        default: 'dry-run'
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    if: >-
+      github.event.inputs.confirmation == 'publish' &&
+      vars.RUBYGEMS_TRUSTED_PUBLISHING_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '4.0'
+          bundler: '4.0.22'
+          bundler-cache: true
+      - name: Verify tag, tests, and package
+        run: |
+          bin/check_release_tag "${GITHUB_REF_NAME}"
+          bundle exec rake
+          bundle exec rbs -r date -I sig validate
+          bin/package_smoke_test
+      - uses: rubygems/release-gem@v1

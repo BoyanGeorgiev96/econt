@@ -1,0 +1,510 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://demo.econt.com/ee/services/Shipments/ShipmentService.getMyAWB.json
+    body:
+      encoding: UTF-8
+      string: '{"dateFrom":"<ECONT_CONTRACT_SERVICE_DATE>","dateTo":"<ECONT_CONTRACT_SERVICE_DATE>","page":1}'
+    headers:
+      User-Agent:
+      - EcontRubyClient/0.1.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 07 Oct 2026 13:23:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8;
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      X-Timestamp:
+      - '1791379393266'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "dateFrom": 1791320400000,
+          "dateTo": 1791320400000,
+          "page": 1,
+          "totalPages": 1,
+          "results": [
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791378868000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791377888000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791377023000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791376913000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791376840000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791376743000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791374758000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791373014000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791369628000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791366449000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791363854000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791363847000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791363151000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791362462000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791362461000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791362460000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791361332000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791361321000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791361271000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791361244000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791361167000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791360822000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791360763000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791360537000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791360206000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791360206000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791360205000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791358664000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791354597000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791354026000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791353555000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791345024000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791338616000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791334505000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "receiver",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "€",
+              "courierServiceCurrency": "€"
+            },
+            {
+              "shipmentNumber": "<REDACTED>",
+              "senderName": "<REDACTED>",
+              "status": "Очаква предаване към Еконт",
+              "createdDate": 1791328623000,
+              "acceptedDate": null,
+              "cdAmount": 0,
+              "courierServiceAmount": 0,
+              "courierServiceMasterPayer": "sender",
+              "receiverPhone": "<REDACTED>",
+              "cdCurrency": "",
+              "courierServiceCurrency": "€"
+            }
+          ]
+        }
+  recorded_at: Wed, 07 Oct 2026 13:23:13 GMT
+recorded_with: VCR 6.4.0

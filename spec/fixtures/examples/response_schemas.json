@@ -1,0 +1,2427 @@
+{
+  "source": "https://ee.econt.com/services/openapi.yaml",
+  "provenance": "Schema-derived synthetic examples; not recorded API responses. Snapshot 2026-10-11.",
+  "schemas": {
+    "PaymentReportRequest": {
+      "type": "object",
+      "properties": {
+        "dateTo": {
+          "type": "string"
+        },
+        "dateFrom": {
+          "type": "string"
+        }
+      }
+    },
+    "PaymentReportRow": {
+      "type": "object",
+      "properties": {
+        "num": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "type": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payDate": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "innerErrors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Error"
+          }
+        }
+      }
+    },
+    "ThreeWayLogisticsRequest": {
+      "type": "object",
+      "properties": {
+        "requester_name": {
+          "type": "string"
+        },
+        "requester_phone": {
+          "type": "string"
+        },
+        "requester_email": {
+          "type": "string"
+        },
+        "requester_company_name": {
+          "type": "string"
+        },
+        "requester_username": {
+          "type": "string"
+        },
+        "supplier_company_name": {
+          "type": "string"
+        },
+        "supplier_contact_person": {
+          "type": "string"
+        },
+        "supplier_phone": {
+          "type": "string"
+        },
+        "supplier_city": {
+          "type": "string"
+        },
+        "supplier_address": {
+          "type": "string"
+        },
+        "supplier_date_for_visit": {
+          "type": "string"
+        },
+        "supplier_time_for_visit": {
+          "type": "string"
+        },
+        "receiver_name": {
+          "type": "string"
+        },
+        "receiver_company_name": {
+          "type": "string"
+        },
+        "receiver_phone": {
+          "type": "string"
+        },
+        "receiver_email": {
+          "type": "string"
+        },
+        "description_shipment_description": {
+          "type": "string"
+        },
+        "description_shipment_count": {
+          "type": "string"
+        },
+        "description_shipment_weight": {
+          "type": "string"
+        },
+        "description_additional_instructions": {
+          "type": "string"
+        },
+        "description_payment_sum_to_supplier": {
+          "type": "string"
+        },
+        "delivery_details_city": {
+          "type": "string"
+        },
+        "delivery_details_address": {
+          "type": "string"
+        },
+        "delivery_details_office": {
+          "type": "string"
+        },
+        "dc": {
+          "type": "string"
+        },
+        "dccp": {
+          "type": "string"
+        },
+        "email_on_delivery": {
+          "type": "string"
+        },
+        "invoice_before_pay": {
+          "type": "string"
+        },
+        "preview": {
+          "type": "string"
+        },
+        "test": {
+          "type": "string"
+        },
+        "payment_delivery_and_return_by_me": {
+          "type": "string"
+        },
+        "payment_return_by_me": {
+          "type": "string"
+        },
+        "payment_delivery_by_requester": {
+          "type": "string"
+        },
+        "payment_delivery_by_receiver": {
+          "type": "string"
+        },
+        "oc_sum": {
+          "type": "string"
+        },
+        "cd_sum": {
+          "type": "string"
+        },
+        "priority_delivery_time_before": {
+          "type": "string"
+        },
+        "priority_delivery_time_after": {
+          "type": "string"
+        },
+        "priority_delivery_time_in": {
+          "type": "string"
+        }
+      }
+    },
+    "ThreeWayLogisticsResponse": {
+      "type": "object"
+    },
+    "GetClientProfilesRequest": {
+      "type": "object"
+    },
+    "GetClientProfilesResponse": {
+      "type": "object",
+      "properties": {
+        "profiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ProfilesResponseElement"
+          }
+        }
+      }
+    },
+    "ProfilesResponseElement": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Address"
+          }
+        },
+        "cdPayOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CDPayOptions"
+          }
+        },
+        "instructionTemplates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Instruction"
+          }
+        }
+      }
+    },
+    "ClientProfile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "email": {
+          "type": "string"
+        },
+        "skypeAccounts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "clientNumber": {
+          "type": "string"
+        },
+        "clientNumberEn": {
+          "type": "string"
+        },
+        "juridicalEntity": {
+          "type": "boolean"
+        },
+        "personalIDType": {
+          "type": "string"
+        },
+        "personalIDNumber": {
+          "type": "string"
+        },
+        "companyType": {
+          "type": "string"
+        },
+        "ein": {
+          "type": "string"
+        },
+        "ddsEinPrefix": {
+          "type": "string"
+        },
+        "ddsEin": {
+          "type": "string"
+        },
+        "registrationAddress": {
+          "type": "string"
+        },
+        "molName": {
+          "type": "string"
+        },
+        "molEGN": {
+          "type": "string"
+        },
+        "molIDNum": {
+          "type": "string"
+        }
+      }
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "city": {
+          "$ref": "#/components/schemas/City"
+        },
+        "fullAddress": {
+          "type": "string"
+        },
+        "fullAddressEn": {
+          "type": "string"
+        },
+        "quarter": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "num": {
+          "type": "string"
+        },
+        "other": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/components/schemas/GeoLocation"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "hezid": {
+          "type": "string"
+        }
+      }
+    },
+    "City": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "country": {
+          "$ref": "#/components/schemas/Country"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "regionName": {
+          "type": "string"
+        },
+        "regionNameEn": {
+          "type": "string"
+        },
+        "phoneCode": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/components/schemas/GeoLocation"
+        },
+        "expressCityDeliveries": {
+          "type": "boolean"
+        },
+        "monday": {
+          "type": "boolean"
+        },
+        "tuesday": {
+          "type": "boolean"
+        },
+        "wednesday": {
+          "type": "boolean"
+        },
+        "thursday": {
+          "type": "boolean"
+        },
+        "friday": {
+          "type": "boolean"
+        },
+        "saturday": {
+          "type": "boolean"
+        },
+        "sunday": {
+          "type": "boolean"
+        },
+        "serviceDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "zoneId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "zoneName": {
+          "type": "string"
+        },
+        "zoneNameEn": {
+          "type": "string"
+        },
+        "servingOffices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ServingOfficeElement"
+          }
+        }
+      }
+    },
+    "Country": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code2": {
+          "type": "string"
+        },
+        "code3": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "isEU": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GeoLocation": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "confidence": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ServingOfficeElement": {
+      "type": "object",
+      "properties": {
+        "officeCode": {
+          "type": "string"
+        },
+        "servingType": {
+          "type": "string"
+        }
+      }
+    },
+    "CDPayOptions": {
+      "type": "object",
+      "properties": {
+        "num": {
+          "type": "string"
+        },
+        "client": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "moneyTransfer": {
+          "type": "boolean"
+        },
+        "express": {
+          "type": "boolean"
+        },
+        "method": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "officeCode": {
+          "type": "string"
+        },
+        "IBAN": {
+          "type": "string"
+        },
+        "BIC": {
+          "type": "string"
+        },
+        "bankCurrency": {
+          "type": "string"
+        },
+        "payDays": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "payWeekdays": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Weekday"
+          }
+        },
+        "additionalInstructions": {
+          "type": "string"
+        },
+        "departamentNum": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Weekday": {
+      "type": "string",
+      "enum": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ]
+    },
+    "Instruction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "$ref": "#/components/schemas/InstructionType"
+        },
+        "title": {
+          "type": "string"
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/HostedFile"
+          }
+        },
+        "voiceDescription": {
+          "$ref": "#/components/schemas/HostedFile"
+        },
+        "returnInstructionParams": {
+          "$ref": "#/components/schemas/ReturnInstructionParams"
+        },
+        "name": {
+          "type": "string"
+        },
+        "applyToAllParcels": {
+          "type": "boolean"
+        },
+        "applyToReceivers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "InstructionType": {
+      "type": "string",
+      "enum": [
+        "take",
+        "give",
+        "return",
+        "services"
+      ]
+    },
+    "HostedFile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "mimeType": {
+          "type": "string"
+        },
+        "URL": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "ReturnInstructionParams": {
+      "type": "object",
+      "properties": {
+        "returnParcelDestination": {
+          "type": "string"
+        },
+        "returnParcelIsDocument": {
+          "type": "boolean"
+        },
+        "returnParcelIsEmptyPallet": {
+          "type": "boolean"
+        },
+        "emptyPalletEuro": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "emptyPallet80": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "emptyPallet100": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "emptyPallet120": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "daysUntilReturn": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "returnParcelPaymentSide": {
+          "type": "string"
+        },
+        "returnParcelReceiverClient": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "returnParcelReceiverAgent": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "returnParcelReceiverOfficeCode": {
+          "type": "string"
+        },
+        "returnParcelReceiverAddress": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "printReturnParcel": {
+          "type": "boolean"
+        },
+        "rejectAction": {
+          "type": "string"
+        },
+        "rejectInstruction": {
+          "type": "string"
+        },
+        "rejectContact": {
+          "type": "string"
+        },
+        "rejectReturnClient": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "rejectReturnAgent": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "rejectReturnOfficeCode": {
+          "type": "string"
+        },
+        "rejectReturnAddress": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "rejectOriginalParcelPaySide": {
+          "type": "string"
+        },
+        "rejectReturnParcelPaySide": {
+          "type": "string"
+        },
+        "signatureDocuments": {
+          "type": "boolean"
+        },
+        "signaturePenColor": {
+          "type": "string"
+        },
+        "signatureCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "signaturePageNumbers": {
+          "type": "string"
+        },
+        "signatureOtherInstructions": {
+          "type": "string"
+        },
+        "executeIfRejectedWithoutReview": {
+          "type": "boolean"
+        },
+        "useReturnAddressForInstruction": {
+          "type": "boolean"
+        },
+        "executeIfNotTaken": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "CreateCDAgreementRequest": {
+      "type": "object",
+      "properties": {
+        "cdPayOptions": {
+          "$ref": "#/components/schemas/CDPayOptions"
+        }
+      }
+    },
+    "CreateCDAgreementResponse": {
+      "type": "object",
+      "properties": {
+        "cdPayOptions": {
+          "$ref": "#/components/schemas/CDPayOptions"
+        }
+      }
+    },
+    "CreateLabelRequest": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/components/schemas/ShippingLabel"
+        },
+        "requestCourierTimeFrom": {
+          "type": "string",
+          "format": "time"
+        },
+        "requestCourierTimeTo": {
+          "type": "string",
+          "format": "time"
+        },
+        "mode": {
+          "type": "string"
+        }
+      }
+    },
+    "ShippingLabel": {
+      "type": "object",
+      "properties": {
+        "shipmentNumber": {
+          "type": "string"
+        },
+        "previousShipmentNumber": {
+          "type": "string"
+        },
+        "previousShipmentReceiverPhone": {
+          "type": "string"
+        },
+        "senderClient": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "senderAgent": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "senderAddress": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "senderOfficeCode": {
+          "type": "string"
+        },
+        "emailOnDelivery": {
+          "type": "string"
+        },
+        "smsOnDelivery": {
+          "type": "string"
+        },
+        "receiverClient": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "receiverAgent": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "receiverAddress": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "receiverOfficeCode": {
+          "type": "string"
+        },
+        "receiverProviderID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "receiverBIC": {
+          "type": "string"
+        },
+        "receiverIBAN": {
+          "type": "string"
+        },
+        "envelopeNumbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "packCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "packs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PackElement"
+          }
+        },
+        "shipmentType": {
+          "$ref": "#/components/schemas/ShipmentType"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
+        },
+        "sizeUnder60cm": {
+          "type": "boolean"
+        },
+        "shipmentDimensionsL": {
+          "type": "number",
+          "format": "double"
+        },
+        "shipmentDimensionsW": {
+          "type": "number",
+          "format": "double"
+        },
+        "shipmentDimensionsH": {
+          "type": "number",
+          "format": "double"
+        },
+        "shipmentDescription": {
+          "type": "string"
+        },
+        "orderNumber": {
+          "type": "string"
+        },
+        "sendDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "holidayDeliveryDay": {
+          "type": "string"
+        },
+        "keepUpright": {
+          "type": "boolean"
+        },
+        "services": {
+          "$ref": "#/components/schemas/ShippingLabelServices"
+        },
+        "instructions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Instruction"
+          }
+        },
+        "payAfterAccept": {
+          "type": "boolean"
+        },
+        "payAfterTest": {
+          "type": "boolean"
+        },
+        "packingListType": {
+          "type": "string"
+        },
+        "packingList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PackingListElement"
+          }
+        },
+        "partialDelivery": {
+          "type": "boolean"
+        },
+        "paymentSenderMethod": {
+          "type": "string"
+        },
+        "paymentReceiverMethod": {
+          "type": "string"
+        },
+        "paymentReceiverAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "paymentReceiverAmountIsPercent": {
+          "type": "boolean"
+        },
+        "paymentOtherClientNumber": {
+          "type": "string"
+        },
+        "paymentOtherAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "paymentOtherAmountIsPercent": {
+          "type": "boolean"
+        },
+        "mediator": {
+          "type": "string"
+        },
+        "paymentToken": {
+          "type": "string"
+        },
+        "customsList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CustomsListElement"
+          }
+        },
+        "customsInvoice": {
+          "type": "string"
+        },
+        "cargoVehicleOptions": {
+          "$ref": "#/components/schemas/CargoVehicleOptions"
+        }
+      }
+    },
+    "PackElement": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "number",
+          "format": "float"
+        },
+        "height": {
+          "type": "number",
+          "format": "float"
+        },
+        "length": {
+          "type": "number",
+          "format": "float"
+        },
+        "weight": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "ShipmentType": {
+      "type": "string",
+      "enum": [
+        "document",
+        "pack",
+        "pallet",
+        "cargo",
+        "documentpallet",
+        "big_letter",
+        "small_letter",
+        "money_transfer",
+        "pp"
+      ]
+    },
+    "ShippingLabelServices": {
+      "type": "object",
+      "properties": {
+        "priorityTimeFrom": {
+          "type": "string",
+          "format": "time"
+        },
+        "priorityTimeTo": {
+          "type": "string",
+          "format": "time"
+        },
+        "deliveryReceipt": {
+          "type": "boolean"
+        },
+        "digitalReceipt": {
+          "type": "boolean"
+        },
+        "goodsReceipt": {
+          "type": "boolean"
+        },
+        "twoWayShipment": {
+          "type": "boolean"
+        },
+        "deliveryToFloor": {
+          "type": "boolean"
+        },
+        "pack5": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pack6": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pack8": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pack9": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pack10": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pack12": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "refrigeratedPack": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "declaredValueAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "declaredValueCurrency": {
+          "type": "string"
+        },
+        "moneyTransferAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "expressMoneyTransfer": {
+          "type": "boolean"
+        },
+        "cdAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "cdType": {
+          "type": "string"
+        },
+        "cdCurrency": {
+          "type": "string"
+        },
+        "cdPayOptionsTemplate": {
+          "type": "string"
+        },
+        "cdPayOptions": {
+          "$ref": "#/components/schemas/CDPayOptions"
+        },
+        "invoiceBeforePayCD": {
+          "type": "boolean"
+        },
+        "smsNotification": {
+          "type": "boolean"
+        },
+        "invoiceNum": {
+          "type": "string"
+        },
+        "moneyTransferCurrency": {
+          "type": "string"
+        }
+      }
+    },
+    "PackingListElement": {
+      "type": "object",
+      "properties": {
+        "inventoryNum": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "file": {
+          "$ref": "#/components/schemas/HostedFile"
+        },
+        "alternativeDepartment": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomsListElement": {
+      "type": "object",
+      "properties": {
+        "cn": {
+          "type": "string"
+        },
+        "sum": {
+          "type": "number",
+          "format": "double"
+        },
+        "currency": {
+          "type": "string"
+        }
+      }
+    },
+    "CargoVehicleOptions": {
+      "type": "object",
+      "properties": {
+        "senderAddressTruckAccess": {
+          "type": "boolean"
+        },
+        "receiverAddressTruckAccess": {
+          "type": "boolean"
+        },
+        "senderAddressLiftingVehicleRequired": {
+          "type": "boolean"
+        },
+        "receiverAddressLiftingVehicleRequired": {
+          "type": "boolean"
+        },
+        "senderAddressTailLiftTruckRequired": {
+          "type": "boolean"
+        },
+        "receiverAddressTailLiftTruckRequired": {
+          "type": "boolean"
+        }
+      }
+    },
+    "CreateLabelResponse": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/components/schemas/ShipmentStatus"
+        },
+        "blockingPaymentURL": {
+          "type": "string"
+        },
+        "courierRequestID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "payAfterAcceptIgnored": {
+          "type": "string"
+        },
+        "delayedDeliveryWarning": {
+          "type": "string"
+        },
+        "delayedRequestWarning": {
+          "type": "string"
+        }
+      }
+    },
+    "ShipmentStatus": {
+      "type": "object",
+      "properties": {
+        "shipmentNumber": {
+          "type": "string"
+        },
+        "storageOfficeName": {
+          "type": "string"
+        },
+        "storagePersonName": {
+          "type": "string"
+        },
+        "createdTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sendTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deliveryTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shipmentType": {
+          "$ref": "#/components/schemas/ShipmentType"
+        },
+        "packCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shipmentDescription": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
+        },
+        "senderDeliveryType": {
+          "type": "string"
+        },
+        "senderClient": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "senderAgent": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "senderOfficeCode": {
+          "type": "string"
+        },
+        "senderAddress": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "receiverDeliveryType": {
+          "type": "string"
+        },
+        "receiverClient": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "receiverAgent": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "receiverOfficeCode": {
+          "type": "string"
+        },
+        "receiverAddress": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "hubCode": {
+          "type": "string"
+        },
+        "hubName": {
+          "type": "string"
+        },
+        "hubNameEN": {
+          "type": "string"
+        },
+        "cdCollectedAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "cdCollectedCurrency": {
+          "type": "string"
+        },
+        "cdCollectedTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "cdPaidAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "cdPaidCurrency": {
+          "type": "string"
+        },
+        "cdPaidTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "totalPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "discountPercent": {
+          "type": "number",
+          "format": "double"
+        },
+        "discountAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "discountDescription": {
+          "type": "string"
+        },
+        "senderDueAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "receiverDueAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "otherDueAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "deliveryAttemptCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "previousShipmentNumber": {
+          "type": "string"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ShipmentStatusService"
+          }
+        },
+        "lastProcessedInstruction": {
+          "type": "string"
+        },
+        "nextShipments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/NextShipmentElement"
+          }
+        },
+        "trackingEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ShipmentTrackingEvent"
+          }
+        },
+        "pdfURL": {
+          "type": "string"
+        },
+        "expectedDeliveryDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "returnShipmentURL": {
+          "type": "string"
+        },
+        "rejectOriginalParcelPaySide": {
+          "type": "string"
+        },
+        "rejectReturnParcelPaySide": {
+          "type": "string"
+        },
+        "shipmentEdition": {
+          "$ref": "#/components/schemas/ShipmentEditionResponseElement"
+        },
+        "previousShipment": {
+          "$ref": "#/components/schemas/PreviousShipment"
+        },
+        "warnings": {
+          "type": "string"
+        },
+        "shortDeliveryStatus": {
+          "type": "string"
+        },
+        "shortDeliveryStatusEn": {
+          "type": "string"
+        },
+        "routingCode": {
+          "type": "string"
+        }
+      }
+    },
+    "ShipmentStatusService": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number",
+          "format": "double"
+        },
+        "paymentSide": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "currency": {
+          "type": "string"
+        }
+      }
+    },
+    "NextShipmentElement": {
+      "type": "object",
+      "properties": {
+        "shipmentNumber": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "pdfURL": {
+          "type": "string"
+        }
+      }
+    },
+    "ShipmentTrackingEvent": {
+      "type": "object",
+      "properties": {
+        "isReceipt": {
+          "type": "boolean"
+        },
+        "destinationType": {
+          "type": "string"
+        },
+        "destinationDetails": {
+          "type": "string"
+        },
+        "destinationDetailsEn": {
+          "type": "string"
+        },
+        "officeName": {
+          "type": "string"
+        },
+        "officeNameEn": {
+          "type": "string"
+        },
+        "cityName": {
+          "type": "string"
+        },
+        "cityNameEn": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "officeCode": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ShipmentEditionResponseElement": {
+      "type": "object",
+      "properties": {
+        "shipmentNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "editionNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "editionType": {
+          "type": "string"
+        },
+        "editionError": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        }
+      }
+    },
+    "PreviousShipment": {
+      "type": "object",
+      "properties": {
+        "shipmentNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "pdfURL": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateLabelsRequest": {
+      "type": "object",
+      "properties": {
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ShippingLabel"
+          }
+        },
+        "runAsyncAndEmailResultTo": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateLabelsResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CreateLabelResultElement"
+          }
+        }
+      }
+    },
+    "CreateLabelResultElement": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/components/schemas/ShipmentStatus"
+        },
+        "error": {
+          "$ref": "#/components/schemas/Error"
+        },
+        "payAfterAcceptIgnored": {
+          "type": "string"
+        },
+        "delayedDeliveryWarning": {
+          "type": "string"
+        },
+        "delayedRequestWarning": {
+          "type": "string"
+        }
+      }
+    },
+    "DeleteLabelsRequest": {
+      "type": "object",
+      "properties": {
+        "shipmentNumbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DeleteLabelsResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/DeleteLabelsResultElement"
+          }
+        }
+      }
+    },
+    "DeleteLabelsResultElement": {
+      "type": "object",
+      "properties": {
+        "shipmentNum": {
+          "type": "string"
+        },
+        "error": {
+          "$ref": "#/components/schemas/Error"
+        }
+      }
+    },
+    "UpdateLabelRequest": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/components/schemas/ShippingLabel"
+        },
+        "requestCourierTimeFrom": {
+          "type": "string",
+          "format": "time"
+        },
+        "requestCourierTimeTo": {
+          "type": "string",
+          "format": "time"
+        },
+        "destroy": {
+          "type": "boolean"
+        },
+        "paymentAdditionPrice": {
+          "$ref": "#/components/schemas/PaymentAdditionPrice"
+        },
+        "paymentInstruction": {
+          "$ref": "#/components/schemas/PaymentInstruction"
+        }
+      }
+    },
+    "PaymentAdditionPrice": {
+      "type": "object",
+      "properties": {
+        "side": {
+          "type": "string"
+        },
+        "shareAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "method": {
+          "type": "string"
+        },
+        "otherClientNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "PaymentInstruction": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateLabelResponse": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/components/schemas/ShipmentStatus"
+        }
+      }
+    },
+    "CheckPossibleShipmentEditionsRequest": {
+      "type": "object",
+      "properties": {
+        "shipmentNums": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "CheckPossibleShipmentEditionsResponse": {
+      "type": "object",
+      "properties": {
+        "possibleShipmentEditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CheckPossibleShipmentEditionsResultElement"
+          }
+        }
+      }
+    },
+    "CheckPossibleShipmentEditionsResultElement": {
+      "type": "object",
+      "properties": {
+        "possibleShipmentEditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shipmentNum": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "UpdateLabelsRequest": {
+      "type": "object",
+      "properties": {
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/UpdateLabelRequest"
+          }
+        }
+      }
+    },
+    "UpdateLabelsResponse": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/UpdateLabelsResultElement"
+          }
+        }
+      }
+    },
+    "UpdateLabelsResultElement": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "$ref": "#/components/schemas/Error"
+        },
+        "labels": {
+          "$ref": "#/components/schemas/UpdateLabelResponse"
+        }
+      }
+    },
+    "GroupingRequest": {
+      "type": "object",
+      "properties": {
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "GroupingResponse": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/components/schemas/ShipmentStatus"
+        }
+      }
+    },
+    "GroupingCancelationRequest": {
+      "type": "object",
+      "properties": {
+        "groupLabel": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "GroupingCancelationResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "RequestCourierRequest": {
+      "type": "object",
+      "properties": {
+        "requestTimeFrom": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "requestTimeTo": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shipmentType": {
+          "$ref": "#/components/schemas/ShipmentType"
+        },
+        "shipmentPackCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shipmentWeight": {
+          "type": "number",
+          "format": "double"
+        },
+        "senderClient": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "senderAgent": {
+          "$ref": "#/components/schemas/ClientProfile"
+        },
+        "senderAddress": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "attachShipments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pack12": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cargoVehicleOptions": {
+          "$ref": "#/components/schemas/CargoVehicleOptions"
+        }
+      }
+    },
+    "RequestCourierResponse": {
+      "type": "object",
+      "properties": {
+        "courierRequestID": {
+          "type": "string"
+        },
+        "warnings": {
+          "type": "string"
+        },
+        "delayedRequestWarning": {
+          "type": "string"
+        }
+      }
+    },
+    "GetShipmentStatusesRequest": {
+      "type": "object",
+      "properties": {
+        "shipmentNumbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetShipmentStatusesResponse": {
+      "type": "object",
+      "properties": {
+        "shipmentStatuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ShipmentStatusResultElement"
+          }
+        }
+      }
+    },
+    "ShipmentStatusResultElement": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/components/schemas/ShipmentStatus"
+        },
+        "error": {
+          "$ref": "#/components/schemas/Error"
+        }
+      }
+    },
+    "GetRequestCourierStatusRequest": {
+      "type": "object",
+      "properties": {
+        "requestCourierIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetRequestCourierStatusResponse": {
+      "type": "object",
+      "properties": {
+        "requestCourierStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RequestCourierStatusResultElement"
+          }
+        }
+      }
+    },
+    "RequestCourierStatusResultElement": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/components/schemas/RequestCourierStatus"
+        },
+        "error": {
+          "$ref": "#/components/schemas/Error"
+        }
+      }
+    },
+    "RequestCourierStatus": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "$ref": "#/components/schemas/RequestCourierStatusType"
+        },
+        "note": {
+          "type": "string"
+        },
+        "reject_reason": {
+          "type": "string"
+        }
+      }
+    },
+    "RequestCourierStatusType": {
+      "type": "string",
+      "enum": [
+        "unprocess",
+        "process",
+        "taken",
+        "reject",
+        "reject_client"
+      ]
+    },
+    "GetMyAWBRequest": {
+      "type": "object",
+      "properties": {
+        "dateFrom": {
+          "type": "string",
+          "format": "date"
+        },
+        "dateTo": {
+          "type": "string",
+          "format": "date"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "side": {
+          "type": "string"
+        }
+      }
+    },
+    "GetMyAWBResponse": {
+      "type": "object",
+      "properties": {
+        "dateFrom": {
+          "type": "string",
+          "format": "date"
+        },
+        "dateTo": {
+          "type": "string",
+          "format": "date"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GetMyAWBResultElement"
+          }
+        }
+      }
+    },
+    "GetMyAWBResultElement": {
+      "type": "object",
+      "properties": {
+        "shipmentNumber": {
+          "type": "string"
+        },
+        "senderName": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "acceptedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "cdAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "courierServiceAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "courierServiceMasterPayer": {
+          "type": "string"
+        },
+        "receiverPhone": {
+          "type": "string"
+        },
+        "cdCurrency": {
+          "type": "string"
+        },
+        "courierServiceCurrency": {
+          "type": "string"
+        }
+      }
+    },
+    "SetITUCodeRequest": {
+      "type": "object",
+      "properties": {
+        "awbBarcode": {
+          "type": "string"
+        },
+        "truckRegNum": {
+          "type": "string"
+        },
+        "ITU_code": {
+          "type": "string"
+        }
+      }
+    },
+    "SetITUCodeResponse": {
+      "type": "object"
+    },
+    "GetCountriesRequest": {
+      "type": "object"
+    },
+    "GetCountriesResponse": {
+      "type": "object",
+      "properties": {
+        "countries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Country"
+          }
+        }
+      }
+    },
+    "GetCitiesRequest": {
+      "type": "object",
+      "properties": {
+        "countryCode": {
+          "type": "string"
+        }
+      }
+    },
+    "GetCitiesResponse": {
+      "type": "object",
+      "properties": {
+        "cities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/City"
+          }
+        }
+      }
+    },
+    "GetOfficesRequest": {
+      "type": "object",
+      "properties": {
+        "countryCode": {
+          "type": "string"
+        },
+        "cityID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "showCargoReceptions": {
+          "type": "boolean"
+        },
+        "showLC": {
+          "type": "boolean"
+        },
+        "servingReceptions": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GetOfficesResponse": {
+      "type": "object",
+      "properties": {
+        "offices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Office"
+          }
+        }
+      }
+    },
+    "Office": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "isMPS": {
+          "type": "boolean"
+        },
+        "isAPS": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "address": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "info": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "normalBusinessHoursFrom": {
+          "type": "string",
+          "format": "time"
+        },
+        "normalBusinessHoursTo": {
+          "type": "string",
+          "format": "time"
+        },
+        "halfDayBusinessHoursFrom": {
+          "type": "string",
+          "format": "time"
+        },
+        "halfDayBusinessHoursTo": {
+          "type": "string",
+          "format": "time"
+        },
+        "shipmentTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ShipmentType"
+          }
+        },
+        "partnerCode": {
+          "type": "string"
+        },
+        "hubCode": {
+          "type": "string"
+        },
+        "hubName": {
+          "type": "string"
+        },
+        "hubNameEn": {
+          "type": "string"
+        },
+        "isDrive": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GetStreetsRequest": {
+      "type": "object",
+      "properties": {
+        "cityID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "GetStreetsResponse": {
+      "type": "object",
+      "properties": {
+        "streets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Street"
+          }
+        }
+      }
+    },
+    "Street": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cityID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        }
+      }
+    },
+    "GetQuartersRequest": {
+      "type": "object",
+      "properties": {
+        "cityID": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "GetQuartersResponse": {
+      "type": "object",
+      "properties": {
+        "quarters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Quarter"
+          }
+        }
+      }
+    },
+    "Quarter": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "cityID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameEn": {
+          "type": "string"
+        }
+      }
+    },
+    "ValidateAddressRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/components/schemas/Address"
+        }
+      }
+    },
+    "ValidateAddressResponse": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "validationStatus": {
+          "type": "string"
+        },
+        "serviceInfo": {
+          "$ref": "#/components/schemas/AddressServiceInfo"
+        }
+      }
+    },
+    "AddressServiceInfo": {
+      "type": "object",
+      "properties": {
+        "allowedPacksCourierRequest": {
+          "type": "boolean"
+        },
+        "deliveryPacksExtraDelayDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "allowedCargoCourierRequest": {
+          "type": "boolean"
+        },
+        "deliveryCargoExtraDelayDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "allowedPalletCourierRequest": {
+          "type": "boolean"
+        },
+        "deliveryPalletExtraDelayDays": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "AddressServiceTimesRequest": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "address": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "shipmentType": {
+          "$ref": "#/components/schemas/ShipmentType"
+        }
+      }
+    },
+    "AddressServiceTimesResponse": {
+      "type": "object",
+      "properties": {
+        "serviceOffice": {
+          "$ref": "#/components/schemas/Office"
+        },
+        "serviceOfficeLatitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "serviceOfficeLongitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "serviceOfficeClientsWorkTimes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/WorkingTime"
+          }
+        },
+        "serviceOfficeCourierWorkTimes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/WorkingTime"
+          }
+        },
+        "serviceOfficeTime": {
+          "$ref": "#/components/schemas/WorkingDateTime"
+        },
+        "serviceOfficeNext30daysWorkTime": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/WorkingDateTime"
+          }
+        }
+      }
+    },
+    "WorkingTime": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        }
+      }
+    },
+    "WorkingDateTime": {
+      "type": "object",
+      "properties": {
+        "dayType": {
+          "$ref": "#/components/schemas/dayType"
+        },
+        "day": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        }
+      }
+    },
+    "dayType": {
+      "type": "string",
+      "enum": [
+        "workday",
+        "halfday",
+        "holiday"
+      ]
+    },
+    "GetNearestOfficesRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/components/schemas/Address"
+        },
+        "shipmentType": {
+          "$ref": "#/components/schemas/ShipmentType"
+        }
+      }
+    },
+    "GetNearestOfficesResponse": {
+      "type": "object",
+      "properties": {
+        "offices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Office"
+          }
+        }
+      }
+    }
+  },
+  "endpoints": {
+    "/PaymentReport/PaymentReportService.PaymentReport.json": {
+      "$ref": "#/components/schemas/PaymentReportRow"
+    },
+    "/ThreeWayLogistics/ThreeWayLogisticsService.threeWayLogistics.json": {
+      "$ref": "#/components/schemas/ThreeWayLogisticsResponse"
+    },
+    "/Profile/ProfileService.getClientProfiles.json": {
+      "$ref": "#/components/schemas/GetClientProfilesResponse"
+    },
+    "/Profile/ProfileService.createCDAgreement.json": {
+      "$ref": "#/components/schemas/CreateCDAgreementResponse"
+    },
+    "/Shipments/LabelService.createLabel.json": {
+      "$ref": "#/components/schemas/CreateLabelResponse"
+    },
+    "/Shipments/LabelService.createLabels.json": {
+      "$ref": "#/components/schemas/CreateLabelsResponse"
+    },
+    "/Shipments/LabelService.deleteLabels.json": {
+      "$ref": "#/components/schemas/DeleteLabelsResponse"
+    },
+    "/Shipments/LabelService.updateLabel.json": {
+      "$ref": "#/components/schemas/UpdateLabelResponse"
+    },
+    "/Shipments/LabelService.checkPossibleShipmentEditions.json": {
+      "$ref": "#/components/schemas/CheckPossibleShipmentEditionsResponse"
+    },
+    "/Shipments/LabelService.updateLabels.json": {
+      "$ref": "#/components/schemas/UpdateLabelsResponse"
+    },
+    "/Shipments/LabelService.grouping.json": {
+      "$ref": "#/components/schemas/GroupingResponse"
+    },
+    "/Shipments/LabelService.groupingCancelation.json": {
+      "$ref": "#/components/schemas/GroupingCancelationResponse"
+    },
+    "/Shipments/ShipmentService.requestCourier.json": {
+      "$ref": "#/components/schemas/RequestCourierResponse"
+    },
+    "/Shipments/ShipmentService.getShipmentStatuses.json": {
+      "$ref": "#/components/schemas/GetShipmentStatusesResponse"
+    },
+    "/Shipments/ShipmentService.getRequestCourierStatus.json": {
+      "$ref": "#/components/schemas/GetRequestCourierStatusResponse"
+    },
+    "/Shipments/ShipmentService.getMyAWB.json": {
+      "$ref": "#/components/schemas/GetMyAWBResponse"
+    },
+    "/Shipments/ShipmentService.setITUCode.json": {
+      "$ref": "#/components/schemas/SetITUCodeResponse"
+    },
+    "/Nomenclatures/NomenclaturesService.getCountries.json": {
+      "$ref": "#/components/schemas/GetCountriesResponse"
+    },
+    "/Nomenclatures/NomenclaturesService.getCities.json": {
+      "$ref": "#/components/schemas/GetCitiesResponse"
+    },
+    "/Nomenclatures/NomenclaturesService.getOffices.json": {
+      "$ref": "#/components/schemas/GetOfficesResponse"
+    },
+    "/Nomenclatures/NomenclaturesService.getStreets.json": {
+      "$ref": "#/components/schemas/GetStreetsResponse"
+    },
+    "/Nomenclatures/NomenclaturesService.getQuarters.json": {
+      "$ref": "#/components/schemas/GetQuartersResponse"
+    },
+    "/Nomenclatures/AddressService.validateAddress.json": {
+      "$ref": "#/components/schemas/ValidateAddressResponse"
+    },
+    "/Nomenclatures/AddressService.addressServiceTimes.json": {
+      "$ref": "#/components/schemas/AddressServiceTimesResponse"
+    },
+    "/Nomenclatures/AddressService.getNearestOffices.json": {
+      "$ref": "#/components/schemas/GetNearestOfficesResponse"
+    }
+  }
+}

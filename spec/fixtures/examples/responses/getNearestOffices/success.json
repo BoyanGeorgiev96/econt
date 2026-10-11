@@ -1,0 +1,89 @@
+{
+  "offices": [
+    {
+      "id": 1,
+      "code": "Synthetic example 2",
+      "isMPS": false,
+      "isAPS": true,
+      "name": "Synthetic example 5",
+      "nameEn": "Synthetic example 6",
+      "phones": [
+        "Synthetic example 7"
+      ],
+      "emails": [
+        "Synthetic example 8"
+      ],
+      "address": {
+        "id": 0,
+        "city": {
+          "id": 10,
+          "country": {
+            "id": 11,
+            "code2": "Synthetic example 12",
+            "code3": "Synthetic example 13",
+            "name": "Synthetic example 14",
+            "nameEn": "Synthetic example 15",
+            "isEU": true
+          },
+          "postCode": "Synthetic example 17",
+          "name": "Synthetic example 18",
+          "nameEn": "Synthetic example 19",
+          "regionName": "Synthetic example 20",
+          "regionNameEn": "Synthetic example 21",
+          "phoneCode": "Synthetic example 22",
+          "location": {
+            "latitude": 23.5,
+            "longitude": 24.5,
+            "confidence": 25
+          },
+          "expressCityDeliveries": true,
+          "monday": false,
+          "tuesday": true,
+          "wednesday": false,
+          "thursday": true,
+          "friday": false,
+          "saturday": true,
+          "sunday": false,
+          "serviceDays": 34,
+          "zoneId": 35,
+          "zoneName": "Synthetic example 36",
+          "zoneNameEn": "Synthetic example 37",
+          "servingOffices": [
+            {
+              "officeCode": "Synthetic example 38",
+              "servingType": "Synthetic example 39"
+            }
+          ]
+        },
+        "fullAddress": "Synthetic example 40",
+        "fullAddressEn": "Synthetic example 41",
+        "quarter": "Synthetic example 42",
+        "street": "Synthetic example 43",
+        "num": "Synthetic example 44",
+        "other": "Synthetic example 45",
+        "location": {
+          "latitude": 46.5,
+          "longitude": 47.5,
+          "confidence": 0
+        },
+        "zip": "Synthetic example 49",
+        "hezid": "Synthetic example 50"
+      },
+      "info": "Synthetic example 51",
+      "currency": "Synthetic example 52",
+      "language": "Synthetic example 53",
+      "normalBusinessHoursFrom": "10:30:45",
+      "normalBusinessHoursTo": "10:30:45",
+      "halfDayBusinessHoursFrom": "10:30:45",
+      "halfDayBusinessHoursTo": "10:30:45",
+      "shipmentTypes": [
+        "document"
+      ],
+      "partnerCode": "Synthetic example 58",
+      "hubCode": "Synthetic example 59",
+      "hubName": "Synthetic example 60",
+      "hubNameEn": "Synthetic example 61",
+      "isDrive": true
+    }
+  ]
+}

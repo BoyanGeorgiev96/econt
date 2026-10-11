@@ -1,0 +1,131 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://demo.econt.com/ee/services/Shipments/LabelService.createLabels.json
+    body:
+      encoding: UTF-8
+      string: '{"labels":[{"senderClient":{"name":"VCR Sender","phones":["+359888000000"]},"senderAddress":{"city":{"id":41,"country":{"code3":"BGR"}},"street":"бул.
+        Витоша","num":"1"},"receiverClient":{"name":"VCR Receiver","phones":["+359888000001"]},"receiverOfficeCode":"1000","shipmentType":"pack","packCount":1,"weight":1.0,"shipmentDescription":"VCR
+        contract test","services":{}}],"runAsyncAndEmailResultTo":null,"mode":"validate"}'
+    headers:
+      User-Agent:
+      - EcontRubyClient/0.1.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 07 Oct 2026 13:23:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8;
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      X-Timestamp:
+      - '1791379392699'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "results": [
+            {
+              "label": {
+                "shipmentNumber": null,
+                "storageOfficeName": null,
+                "storagePersonName": null,
+                "createdTime": 1791379392000,
+                "sendTime": null,
+                "deliveryTime": null,
+                "shipmentType": "pack",
+                "packCount": 1,
+                "shipmentDescription": "VCR contract test",
+                "weight": 1,
+                "senderDeliveryType": null,
+                "senderClient": null,
+                "senderAgent": null,
+                "senderOfficeCode": null,
+                "senderAddress": null,
+                "receiverDeliveryType": null,
+                "receiverClient": null,
+                "receiverAgent": null,
+                "receiverOfficeCode": null,
+                "receiverAddress": null,
+                "hubCode": "",
+                "hubName": "<REDACTED>",
+                "hubNameEN": "<REDACTED>",
+                "cdCollectedAmount": 0,
+                "cdCollectedCurrency": "",
+                "cdCollectedTime": null,
+                "cdPaidAmount": 0,
+                "cdPaidCurrency": "",
+                "cdPaidTime": null,
+                "totalPrice": 0,
+                "currency": "EUR",
+                "discountPercent": 0,
+                "discountAmount": 0,
+                "discountDescription": "",
+                "senderDueAmount": 0,
+                "receiverDueAmount": 0,
+                "otherDueAmount": 0,
+                "deliveryAttemptCount": 0,
+                "previousShipmentNumber": "<REDACTED>",
+                "services": [
+                  {
+                    "type": "C",
+                    "description": "Куриерска услуга - от / до офис на куриера до 1 кг",
+                    "count": 1,
+                    "paymentSide": "SENDER",
+                    "price": 0,
+                    "currency": "EUR"
+                  }
+                ],
+                "lastProcessedInstruction": null,
+                "nextShipments": [],
+                "trackingEvents": [],
+                "pdfURL": "",
+                "expectedDeliveryDate": 1791406800000,
+                "returnShipmentURL": null,
+                "rejectOriginalParcelPaySide": null,
+                "rejectReturnParcelPaySide": null,
+                "shipmentEdition": {
+                  "shipmentNum": 0,
+                  "editionNum": 0,
+                  "editionType": "",
+                  "editionError": "",
+                  "price": "<REDACTED>",
+                  "currency": ""
+                },
+                "previousShipment": null,
+                "warnings": "",
+                "shortDeliveryStatus": null,
+                "shortDeliveryStatusEn": null,
+                "routingCode": ""
+              },
+              "error": null,
+              "payAfterAcceptIgnored": null,
+              "delayedDeliveryWarning": "",
+              "delayedRequestWarning": ""
+            }
+          ]
+        }
+  recorded_at: Wed, 07 Oct 2026 13:23:12 GMT
+recorded_with: VCR 6.4.0

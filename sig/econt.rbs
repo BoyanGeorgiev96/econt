@@ -1,0 +1,465 @@
+module Econt
+  type scalar = nil | bool | String | Symbol | Numeric | Date | DateTime | Time
+  type request_value = scalar | Model | request_hash | Array[request_value]
+  type request_hash = Hash[String | Symbol, request_value]
+
+  VERSION: String
+
+  class Error < StandardError
+    attr_reader status: Integer?
+    attr_reader error: Models::Error?
+    def initialize: (?String?, ?error: Models::Error?, ?status: Integer?) -> void
+  end
+
+  class TransportError < Error
+  end
+
+  class ConnectionError < TransportError
+  end
+
+  class TimeoutError < TransportError
+  end
+
+  class SSLError < TransportError
+  end
+
+  class MetaResource
+  end
+
+  class Collection[unchecked out Elem] < MetaResource
+    include Enumerable[Elem]
+
+    attr_reader error: Models::Error?
+    def error?: () -> bool
+    def each: () { (Elem) -> void } -> void
+    def to_a: () -> Array[Elem]
+    def size: () -> Integer
+    def empty?: () -> bool
+    alias length size
+    alias count size
+  end
+
+  class Model
+    attr_reader error: Models::Error?
+    def initialize: (?request_hash) -> void
+    def error?: () -> bool
+    def to_h: () -> Hash[Symbol, request_value]
+    def to_json: (*untyped) -> String
+  end
+
+  class Client
+    attr_accessor username: String?
+    attr_accessor password: String?
+    attr_accessor base_url: String
+    attr_accessor adapter: untyped
+    attr_accessor acronyms: Hash[String, String]?
+    attr_accessor replace_acronym_defaults: bool
+    attr_accessor debug: bool
+    attr_accessor debug_bodies: bool
+    attr_accessor debug_logger: untyped
+    attr_accessor open_timeout: Numeric
+    attr_accessor read_timeout: Numeric
+    attr_accessor write_timeout: Numeric
+
+    def self.configure: () { (Client) -> void } -> untyped
+    def self.connection: () -> untyped
+    def add_acronyms: (Hash[String | Symbol, String]) -> Hash[String, String]
+    def setup_connection!: () -> untyped
+    def connection: () -> untyped
+  end
+
+  class ServiceResource
+    attr_reader client: Client
+    def initialize: (?client: Client?) -> void
+    def resource_url: () -> String
+  end
+
+  module Services
+    module Nomenclatures
+      class Address < ServiceResource
+        def validate_address: (Models::Nomenclatures::Address | request_hash) -> Models::Nomenclatures::AddressValidationResponse
+        def address_service_times: (city: request_hash, address: request_hash, date: scalar, shipment_type: String) -> Models::Nomenclatures::AddressServiceTimesResponse
+        def get_nearest_offices: (address: request_hash, shipment_type: String) -> Collection[Models::Nomenclatures::Office]
+      end
+
+      class Nomenclatures < ServiceResource
+        def get_countries: () -> Collection[Models::Nomenclatures::Country]
+        def get_cities: (country_code: String) -> Collection[Models::Nomenclatures::City]
+        def get_regions: (country_code: String, ?language: String?) -> Array[String]
+        def get_offices: (country_code: String, ?city_id: Integer?, ?show_cargo_receptions: bool?, ?show_lc: bool?, ?serving_receptions: bool?) -> Collection[Models::Nomenclatures::Office]
+        def get_streets: (?city_id: Integer?) -> Collection[Models::Nomenclatures::Street]
+        def get_quarters: (?city_id: Integer?) -> Collection[Models::Nomenclatures::Quarter]
+      end
+    end
+
+    module Shipments
+      class Label < ServiceResource
+        def create_label: (?label: request_hash?, ?request_courier_time_from: scalar, ?request_courier_time_to: scalar, ?mode: String?) -> Models::Shipments::CreateLabelResultElement
+        def create_labels: (?labels: Array[request_hash], ?run_async_and_email_result_to: String?, ?mode: String?) -> Collection[Models::Shipments::CreateLabelResultElement]
+        def delete_labels: (?shipment_numbers: Array[String]) -> Collection[Models::Shipments::DeleteLabelsResultElement]
+        def update_label: (?label: request_hash?, ?request_courier_time_from: scalar, ?request_courier_time_to: scalar, ?destroy: bool?, ?payment_addition_price: request_hash?, ?payment_instruction: request_hash?) -> Models::Shipments::UpdateLabelResponse
+        def check_possible_shipment_editions: (?shipment_nums: Array[Integer]) -> Collection[Models::Shipments::CheckPossibleShipmentEditionsResultElement]
+        def update_labels: (?labels: Array[request_hash]) -> Collection[Models::Shipments::UpdateLabelsResultElement]
+        def grouping: (?labels: Array[Integer]) -> Models::Shipments::ShipmentStatus
+        def grouping_cancelation: (?group_label: Integer?) -> Models::Shipments::StatusResponse
+      end
+
+      class Shipment < ServiceResource
+        def request_courier: (**request_value) -> Models::Shipments::RequestCourierResponse
+        def get_shipment_statuses: (?shipment_numbers: Array[String]) -> Collection[Models::Shipments::ShipmentStatusResultElement]
+        def get_request_courier_status: (?request_courier_ids: Array[Integer]) -> Collection[Models::Shipments::RequestCourierStatusResultElement]
+        def get_my_awb: (?date_from: scalar, ?date_to: scalar, ?page: Integer?, ?side: String?) -> Models::Shipments::GetMyAwbResponse
+        def set_itu_code: (awb_barcode: String, truck_reg_num: String, itu_code: String) -> untyped
+      end
+    end
+
+    module Profile
+      class Profile < ServiceResource
+        def get_client_profiles: () -> Collection[Models::Profile::ProfilesResponseElement]
+        def create_cd_agreement: (cd_pay_options: request_hash) -> Models::Profile::CDPayOptions
+      end
+    end
+
+    module PaymentReport
+      class PaymentReport < ServiceResource
+        def payment_report: (?date_to: String?, ?date_from: String?) -> (Models::PaymentReport::PaymentReportRow | Collection[Models::PaymentReport::PaymentReportRow])
+      end
+    end
+
+    module ThreeWayLogistics
+      class ThreeWayLogistics < ServiceResource
+        def three_way_logistics: (**request_value) -> Models::ThreeWayLogistics::ThreeWayLogisticsResponse
+      end
+    end
+  end
+
+  module Models
+    class Error < Model
+      def fields: () -> Array[String]
+      def inner_errors: () -> Array[Error]
+      def messages: () -> Array[String]
+      def full_message: () -> String
+    end
+
+    class HostedFile < Model
+    end
+
+    module Nomenclatures
+      class Address < Model
+        def id: () -> Integer?
+        def city: () -> City?
+        def full_address: () -> String?
+        def quarter: () -> String?
+        def street: () -> String?
+        def num: () -> String?
+        def other: () -> String?
+        def location: () -> GeoLocation?
+        def validation_status: () -> String?
+        def service_info: () -> AddressServiceInfo?
+        def validate: () -> AddressValidationResponse
+        def get_nearest_offices: (String) -> Collection[Office]
+      end
+      class AddressServiceInfo < Model
+        def allowed_packs_courier_request: () -> bool?
+        def delivery_packs_extra_delay_days: () -> Integer?
+        def allowed_cargo_courier_request: () -> bool?
+        def delivery_cargo_extra_delay_days: () -> Integer?
+        def allowed_pallet_courier_request: () -> bool?
+        def delivery_pallet_extra_delay_days: () -> Integer?
+      end
+      class AddressValidationResponse < Model
+        def address: () -> Address?
+        def validation_status: () -> String?
+        def service_info: () -> AddressServiceInfo?
+      end
+      class AddressServiceTimesResponse < Model
+        def service_office: () -> Office?
+        def service_office_latitude: () -> Float?
+        def service_office_longitude: () -> Float?
+        def service_office_clients_work_times: () -> Array[WorkingTime]
+        def service_office_courier_work_times: () -> Array[WorkingTime]
+        def service_office_time: () -> WorkingDateTime?
+        def service_office_next30days_work_time: () -> Array[WorkingDateTime]
+      end
+      class City < Model
+        def id: () -> Integer?
+        def country: () -> Country?
+        def post_code: () -> String?
+        def name: () -> String?
+        def name_en: () -> String?
+        def region_name: () -> String?
+        def region_name_en: () -> String?
+        def location: () -> GeoLocation?
+        def serving_offices: () -> Array[ServingOfficeElement]
+      end
+      class Country < Model
+        def id: () -> Integer?
+        def code2: () -> String?
+        def code3: () -> String?
+        def name: () -> String?
+        def name_en: () -> String?
+        def is_eu: () -> bool?
+      end
+      class GeoLocation < Model
+        def latitude: () -> Float?
+        def longitude: () -> Float?
+        def confidence: () -> Integer?
+      end
+      class Office < Model
+        def id: () -> Integer?
+        def code: () -> String?
+        def name: () -> String?
+        def name_en: () -> String?
+        def phones: () -> Array[String]
+        def emails: () -> Array[String]
+        def address: () -> Address?
+        def shipment_types: () -> Array[String]
+        def is_aps: () -> bool?
+        def is_drive: () -> bool?
+      end
+      class Quarter < Model
+        def id: () -> Integer?
+        def city_id: () -> Integer?
+        def name: () -> String?
+        def name_en: () -> String?
+      end
+      class ServingOfficeElement < Model
+        def office_code: () -> String?
+        def serving_type: () -> String?
+      end
+      class Street < Model
+        def id: () -> Integer?
+        def city_id: () -> Integer?
+        def name: () -> String?
+        def name_en: () -> String?
+      end
+      class WorkingDateTime < Model
+        def day_type: () -> String?
+        def day: () -> String?
+        def start: () -> String?
+        def end: () -> String?
+      end
+      class WorkingTime < Model
+        def start: () -> String?
+        def end: () -> String?
+      end
+    end
+
+    module Profile
+      class ClientProfile < Model
+        def id: () -> Integer?
+        def name: () -> String?
+        def name_en: () -> String?
+        def phones: () -> Array[String]
+        def email: () -> String?
+        def client_number: () -> String?
+        def juridical_entity: () -> bool?
+      end
+      class ProfilesResponseElement < Model
+        def client: () -> ClientProfile?
+        def addresses: () -> Array[Models::Nomenclatures::Address]
+        def cd_pay_options: () -> Array[CDPayOptions]
+        def instruction_templates: () -> Array[Models::Shipments::Instruction]
+      end
+      class CDPayOptions < Model
+        def num: () -> String?
+        def client: () -> ClientProfile?
+        def money_transfer: () -> bool?
+        def express: () -> bool?
+        def method: () -> String?
+        def address: () -> Models::Nomenclatures::Address?
+        def office_code: () -> String?
+        def iban: () -> String?
+        def bic: () -> String?
+        def pay_days: () -> Array[Integer]
+        def pay_weekdays: () -> Array[String]
+      end
+    end
+
+    module Shipments
+      class CargoVehicleOptions < Model
+      end
+      class CheckPossibleShipmentEditionsResultElement < Model
+      end
+      class CreateLabelResultElement < Model
+        def label: () -> ShipmentStatus?
+        def error: () -> Models::Error?
+        def pay_after_accept_ignored: () -> String?
+        def blocking_payment_url: () -> String?
+        def courier_request_id: () -> Integer?
+        def delayed_delivery_warning: () -> String?
+        def delayed_request_warning: () -> String?
+      end
+      class CustomsListElement < Model
+      end
+      class DeleteLabelsResultElement < Model
+      end
+      class GetMyAwbResponse < Model
+        def date_from: () -> Date?
+        def date_to: () -> Date?
+        def page: () -> Integer?
+        def total_pages: () -> Integer?
+        def results: () -> Array[GetMyAwbResultElement]
+      end
+      class GetMyAwbResultElement < Model
+        def shipment_number: () -> String?
+        def sender_name: () -> String?
+        def status: () -> String?
+        def created_date: () -> DateTime?
+        def accepted_date: () -> DateTime?
+        def cd_amount: () -> Float?
+        def courier_service_amount: () -> Float?
+        def cd_currency: () -> String?
+        def courier_service_currency: () -> String?
+      end
+      class Instruction < Model
+      end
+      class NextShipmentElement < Model
+      end
+      class PackElement < Model
+      end
+      class PackingListElement < Model
+      end
+      class PaymentAdditionPrice < Model
+      end
+      class PaymentInstruction < Model
+      end
+      class PreviousShipment < Model
+        def shipment_number: () -> Integer?
+        def reason: () -> String?
+        def pdf_url: () -> String?
+      end
+      class RequestCourierResponse < Model
+        def courier_request_id: () -> String?
+        def warnings: () -> String?
+        def delayed_request_warning: () -> String?
+      end
+      class RequestCourierStatus < Model
+        def id: () -> Integer?
+        def status: () -> String?
+        def note: () -> String?
+        def reject_reason: () -> String?
+      end
+      class RequestCourierStatusResultElement < Model
+        def status: () -> RequestCourierStatus?
+        def error: () -> Models::Error?
+      end
+      class ReturnInstructionParams < Model
+        def empty_pallet80: () -> Integer?
+        def empty_pallet100: () -> Integer?
+        def empty_pallet120: () -> Integer?
+        def empty_pallet80=: (Integer?) -> Integer?
+        def empty_pallet100=: (Integer?) -> Integer?
+        def empty_pallet120=: (Integer?) -> Integer?
+        alias empty_pallet_80 empty_pallet80
+        alias empty_pallet_100 empty_pallet100
+        alias empty_pallet_120 empty_pallet120
+        alias empty_pallet_80= empty_pallet80=
+        alias empty_pallet_100= empty_pallet100=
+        alias empty_pallet_120= empty_pallet120=
+      end
+      class ShipmentEditionResponseElement < Model
+      end
+      class ShipmentStatus < Model
+        def shipment_number: () -> String?
+        def created_time: () -> DateTime?
+        def send_time: () -> DateTime?
+        def delivery_time: () -> DateTime?
+        def shipment_type: () -> String?
+        def pack_count: () -> Integer?
+        def shipment_description: () -> String?
+        def weight: () -> Float?
+        def sender_client: () -> Models::Profile::ClientProfile?
+        def sender_address: () -> Models::Nomenclatures::Address?
+        def receiver_client: () -> Models::Profile::ClientProfile?
+        def receiver_address: () -> Models::Nomenclatures::Address?
+        def total_price: () -> Float?
+        def currency: () -> String?
+        def services: () -> Array[ShipmentStatusService]
+        def next_shipments: () -> Array[NextShipmentElement]
+        def tracking_events: () -> Array[ShipmentTrackingEvent]
+        def expected_delivery_date: () -> Date?
+        def shipment_edition: () -> ShipmentEditionResponseElement?
+        def previous_shipment: () -> PreviousShipment?
+        def warnings: () -> String?
+      end
+      class ShipmentStatusResultElement < Model
+        def status: () -> ShipmentStatus?
+        def error: () -> Models::Error?
+      end
+      class ShipmentStatusService < Model
+        def type: () -> String?
+        def description: () -> String?
+        def count: () -> Float?
+        def payment_side: () -> String?
+        def price: () -> Float?
+        def currency: () -> String?
+      end
+      class ShipmentTrackingEvent < Model
+        def is_receipt: () -> bool?
+        def destination_type: () -> String?
+        def destination_details: () -> String?
+        def office_name: () -> String?
+        def city_name: () -> String?
+        def country_code: () -> String?
+        def office_code: () -> String?
+        def time: () -> DateTime?
+      end
+      class ShippingLabel < Model
+        def shipment_number: () -> String?
+        def sender_client: () -> Models::Profile::ClientProfile?
+        def sender_address: () -> Models::Nomenclatures::Address?
+        def sender_office_code: () -> String?
+        def receiver_client: () -> Models::Profile::ClientProfile?
+        def receiver_address: () -> Models::Nomenclatures::Address?
+        def receiver_office_code: () -> String?
+        def pack_count: () -> Integer?
+        def packs: () -> Array[PackElement]
+        def shipment_type: () -> String?
+        def weight: () -> Float?
+        def shipment_description: () -> String?
+        def send_date: () -> Date?
+        def services: () -> ShippingLabelServices?
+        def instructions: () -> Array[Instruction]
+      end
+      class ShippingLabelServices < Model
+        def declared_value_amount: () -> Float?
+        def declared_value_currency: () -> String?
+        def cd_amount: () -> Float?
+        def cd_type: () -> String?
+        def cd_currency: () -> String?
+        def cd_pay_options: () -> Models::Profile::CDPayOptions?
+        def sms_notification: () -> bool?
+      end
+      class StatusResponse < Model
+        def status: () -> String?
+      end
+      class UpdateLabelResponse < Model
+        def label: () -> ShipmentStatus?
+      end
+      class UpdateLabelsResultElement < Model
+        def error: () -> Models::Error?
+        def labels: () -> UpdateLabelResponse?
+      end
+    end
+
+    module ThreeWayLogistics
+      class ThreeWayLogisticsRequest < Model
+      end
+      class ThreeWayLogisticsResponse < Model
+      end
+    end
+
+    module PaymentReport
+      class PaymentReportRow < Model
+        def num: () -> Integer?
+        def type: () -> String?
+        def pay_type: () -> String?
+        def pay_date: () -> String?
+        def amount: () -> Float?
+        def currency: () -> String?
+        def created_time: () -> String?
+      end
+    end
+  end
+end

@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://demo.econt.com/ee/services/Nomenclatures/AddressService.validateAddress.json
+    body:
+      encoding: UTF-8
+      string: '{"address":{"city":{"id":41,"country":{"code3":"BGR"}},"street":"бул.
+        Витоша","num":"1"}}'
+    headers:
+      User-Agent:
+      - EcontRubyClient/0.1.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 07 Oct 2026 09:30:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8;
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      X-Timestamp:
+      - '1791365410905'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAgImFkZHJlc3MiOiB7CiAgICAgICAgImlkIjogbnVsbCwKICAgICAgICAiY2l0eSI6IHsKICAgICAgICAgICAgImlkIjogNDEsCiAgICAgICAgICAgICJjb3VudHJ5IjogewogICAgICAgICAgICAgICAgImlkIjogMTAzMywKICAgICAgICAgICAgICAgICJjb2RlMiI6ICJCRyIsCiAgICAgICAgICAgICAgICAiY29kZTMiOiAiQkdSIiwKICAgICAgICAgICAgICAgICJuYW1lIjogItCR0YrQu9Cz0LDRgNC40Y8iLAogICAgICAgICAgICAgICAgIm5hbWVFbiI6ICJCdWxnYXJpYSIsCiAgICAgICAgICAgICAgICAiaXNFVSI6IHRydWUKICAgICAgICAgICAgfSwKICAgICAgICAgICAgInBvc3RDb2RlIjogIjEwMDAiLAogICAgICAgICAgICAibmFtZSI6ICLQodC+0YTQuNGPIiwKICAgICAgICAgICAgIm5hbWVFbiI6ICJTb2ZpYSIsCiAgICAgICAgICAgICJyZWdpb25OYW1lIjogItCh0L7RhNC40Y8iLAogICAgICAgICAgICAicmVnaW9uTmFtZUVuIjogIlNvZmlhIiwKICAgICAgICAgICAgInBob25lQ29kZSI6ICIyIiwKICAgICAgICAgICAgImxvY2F0aW9uIjogbnVsbCwKICAgICAgICAgICAgImV4cHJlc3NDaXR5RGVsaXZlcmllcyI6IG51bGwsCiAgICAgICAgICAgICJtb25kYXkiOiBudWxsLAogICAgICAgICAgICAidHVlc2RheSI6IG51bGwsCiAgICAgICAgICAgICJ3ZWRuZXNkYXkiOiBudWxsLAogICAgICAgICAgICAidGh1cnNkYXkiOiBudWxsLAogICAgICAgICAgICAiZnJpZGF5IjogbnVsbCwKICAgICAgICAgICAgInNhdHVyZGF5IjogbnVsbCwKICAgICAgICAgICAgInN1bmRheSI6IG51bGwsCiAgICAgICAgICAgICJzZXJ2aWNlRGF5cyI6IG51bGwsCiAgICAgICAgICAgICJ6b25lSWQiOiBudWxsLAogICAgICAgICAgICAiem9uZU5hbWUiOiBudWxsLAogICAgICAgICAgICAiem9uZU5hbWVFbiI6IG51bGwsCiAgICAgICAgICAgICJzZXJ2aW5nT2ZmaWNlcyI6IFtdCiAgICAgICAgfSwKICAgICAgICAiZnVsbEFkZHJlc3MiOiAi0LHRg9C7LiDQktC40YLQvtGI0LAgMSIsCiAgICAgICAgImZ1bGxBZGRyZXNzRW4iOiBudWxsLAogICAgICAgICJxdWFydGVyIjogIiIsCiAgICAgICAgInN0cmVldCI6ICLQsdGD0LsuINCS0LjRgtC+0YjQsCIsCiAgICAgICAgIm51bSI6ICIxIiwKICAgICAgICAib3RoZXIiOiBudWxsLAogICAgICAgICJsb2NhdGlvbiI6IHsKICAgICAgICAgICAgImxhdGl0dWRlIjogNDIuNjk1NTUsCiAgICAgICAgICAgICJsb25naXR1ZGUiOiAyMy4zMjEyNywKICAgICAgICAgICAgImNvbmZpZGVuY2UiOiAwCiAgICAgICAgfSwKICAgICAgICAiemlwIjogbnVsbCwKICAgICAgICAiaGV6aWQiOiBudWxsCiAgICB9LAogICAgInZhbGlkYXRpb25TdGF0dXMiOiAibm9ybWFsIiwKICAgICJzZXJ2aWNlSW5mbyI6IHsKICAgICAgICAiYWxsb3dlZFBhY2tzQ291cmllclJlcXVlc3QiOiB0cnVlLAogICAgICAgICJkZWxpdmVyeVBhY2tzRXh0cmFEZWxheURheXMiOiAwLAogICAgICAgICJhbGxvd2VkQ2FyZ29Db3VyaWVyUmVxdWVzdCI6IHRydWUsCiAgICAgICAgImRlbGl2ZXJ5Q2FyZ29FeHRyYURlbGF5RGF5cyI6IDAsCiAgICAgICAgImFsbG93ZWRQYWxsZXRDb3VyaWVyUmVxdWVzdCI6IHRydWUsCiAgICAgICAgImRlbGl2ZXJ5UGFsbGV0RXh0cmFEZWxheURheXMiOiAwCiAgICB9Cn0=
+  recorded_at: Wed, 07 Oct 2026 09:30:10 GMT
+recorded_with: VCR 6.4.0

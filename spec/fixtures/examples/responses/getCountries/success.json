@@ -1,0 +1,12 @@
+{
+  "countries": [
+    {
+      "id": 1,
+      "code2": "Synthetic example 2",
+      "code3": "Synthetic example 3",
+      "name": "Synthetic example 4",
+      "nameEn": "Synthetic example 5",
+      "isEU": true
+    }
+  ]
+}

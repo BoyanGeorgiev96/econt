@@ -1,0 +1,21 @@
+{
+  "dateFrom": null,
+  "dateTo": null,
+  "page": null,
+  "totalPages": null,
+  "results": [
+    {
+      "shipmentNumber": null,
+      "senderName": null,
+      "status": null,
+      "createdDate": null,
+      "acceptedDate": null,
+      "cdAmount": null,
+      "courierServiceAmount": null,
+      "courierServiceMasterPayer": null,
+      "receiverPhone": null,
+      "cdCurrency": null,
+      "courierServiceCurrency": null
+    }
+  ]
+}

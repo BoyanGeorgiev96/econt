@@ -1,0 +1,52 @@
+AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: enable
+  SuggestExtensions: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 15
+  Exclude:
+    - "lib/econt/resource_attributes.rb"
+
+Metrics/AbcSize:
+  Exclude:
+    - "lib/econt/resource_attributes.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "*.gemspec"
+    - "bin/package_smoke_test"
+    - "lib/econt/resource_attributes.rb"
+    - "spec/**/*"
+
+Metrics/CyclomaticComplexity:
+  Max: 12
+  Exclude:
+    - "lib/econt/resource_attributes.rb"
+
+Metrics/ParameterLists:
+  Max: 7
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "lib/econt/resource_attributes.rb"
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Naming/VariableNumber:
+  Exclude:
+    - "lib/econt/models/shipments/return_instruction_params.rb"
+
+Lint/EmptyClass:
+  Exclude:
+    - "lib/econt/meta_resource.rb"

@@ -1,0 +1,44 @@
+{
+  "cities": [
+    {
+      "id": 1,
+      "country": {
+        "id": 2,
+        "code2": "Synthetic example 3",
+        "code3": "Synthetic example 4",
+        "name": "Synthetic example 5",
+        "nameEn": "Synthetic example 6",
+        "isEU": false
+      },
+      "postCode": "Synthetic example 8",
+      "name": "Synthetic example 9",
+      "nameEn": "Synthetic example 10",
+      "regionName": "Synthetic example 11",
+      "regionNameEn": "Synthetic example 12",
+      "phoneCode": "Synthetic example 13",
+      "location": {
+        "latitude": 14.5,
+        "longitude": 15.5,
+        "confidence": 16
+      },
+      "expressCityDeliveries": false,
+      "monday": true,
+      "tuesday": false,
+      "wednesday": true,
+      "thursday": false,
+      "friday": true,
+      "saturday": false,
+      "sunday": true,
+      "serviceDays": 25,
+      "zoneId": 26,
+      "zoneName": "Synthetic example 27",
+      "zoneNameEn": "Synthetic example 28",
+      "servingOffices": [
+        {
+          "officeCode": "Synthetic example 29",
+          "servingType": "Synthetic example 30"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "cdPayOptions": {
+    "num": "Synthetic example 1",
+    "client": {
+      "id": 2,
+      "name": "Synthetic example 3",
+      "nameEn": "Synthetic example 4",
+      "phones": [
+        "Synthetic example 5"
+      ],
+      "email": "Synthetic example 6",
+      "skypeAccounts": [
+        "Synthetic example 7"
+      ],
+      "clientNumber": "Synthetic example 8",
+      "clientNumberEn": "Synthetic example 9",
+      "juridicalEntity": true,
+      "personalIDType": "Synthetic example 11",
+      "personalIDNumber": "Synthetic example 12",
+      "companyType": "Synthetic example 13",
+      "ein": "Synthetic example 14",
+      "ddsEinPrefix": "Synthetic example 15",
+      "ddsEin": "Synthetic example 16",
+      "registrationAddress": "Synthetic example 17",
+      "molName": "Synthetic example 18",
+      "molEGN": "Synthetic example 19",
+      "molIDNum": "Synthetic example 20"
+    },
+    "moneyTransfer": false,
+    "express": true,
+    "method": "Synthetic example 23",
+    "address": {
+      "id": 0,
+      "city": {
+        "id": 25,
+        "country": {
+          "id": 26,
+          "code2": "Synthetic example 27",
+          "code3": "Synthetic example 28",
+          "name": "Synthetic example 29",
+          "nameEn": "Synthetic example 30",
+          "isEU": false
+        },
+        "postCode": "Synthetic example 32",
+        "name": "Synthetic example 33",
+        "nameEn": "Synthetic example 34",
+        "regionName": "Synthetic example 35",
+        "regionNameEn": "Synthetic example 36",
+        "phoneCode": "Synthetic example 37",
+        "location": {
+          "latitude": 38.5,
+          "longitude": 39.5,
+          "confidence": 40
+        },
+        "expressCityDeliveries": false,
+        "monday": true,
+        "tuesday": false,
+        "wednesday": true,
+        "thursday": false,
+        "friday": true,
+        "saturday": false,
+        "sunday": true,
+        "serviceDays": 49,
+        "zoneId": 50,
+        "zoneName": "Synthetic example 51",
+        "zoneNameEn": "Synthetic example 52",
+        "servingOffices": [
+          {
+            "officeCode": "Synthetic example 53",
+            "servingType": "Synthetic example 54"
+          }
+        ]
+      },
+      "fullAddress": "Synthetic example 55",
+      "fullAddressEn": "Synthetic example 56",
+      "quarter": "Synthetic example 57",
+      "street": "Synthetic example 58",
+      "num": "Synthetic example 59",
+      "other": "Synthetic example 60",
+      "location": {
+        "latitude": 61.5,
+        "longitude": 62.5,
+        "confidence": 0
+      },
+      "zip": "Synthetic example 64",
+      "hezid": "Synthetic example 65"
+    },
+    "officeCode": "Synthetic example 66",
+    "IBAN": "Synthetic example 67",
+    "BIC": "Synthetic example 68",
+    "bankCurrency": "Synthetic example 69",
+    "payDays": [
+      70
+    ],
+    "payWeekdays": [
+      "monday"
+    ],
+    "additionalInstructions": "Synthetic example 71",
+    "departamentNum": 0
+  }
+}

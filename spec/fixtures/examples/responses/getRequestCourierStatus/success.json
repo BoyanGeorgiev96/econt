@@ -1,0 +1,13 @@
+{
+  "requestCourierStatus": [
+    {
+      "status": {
+        "id": 1,
+        "status": "unprocess",
+        "note": "Synthetic example 2",
+        "reject_reason": "Synthetic example 3"
+      },
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "streets": [
+    {
+      "id": 1,
+      "cityID": 2,
+      "name": "Synthetic example 3",
+      "nameEn": "Synthetic example 4"
+    }
+  ]
+}

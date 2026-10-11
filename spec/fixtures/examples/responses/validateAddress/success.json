@@ -1,0 +1,67 @@
+{
+  "address": {
+    "id": 1,
+    "city": {
+      "id": 2,
+      "country": {
+        "id": 0,
+        "code2": "Synthetic example 4",
+        "code3": "Synthetic example 5",
+        "name": "Synthetic example 6",
+        "nameEn": "Synthetic example 7",
+        "isEU": true
+      },
+      "postCode": "Synthetic example 9",
+      "name": "Synthetic example 10",
+      "nameEn": "Synthetic example 11",
+      "regionName": "Synthetic example 12",
+      "regionNameEn": "Synthetic example 13",
+      "phoneCode": "Synthetic example 14",
+      "location": {
+        "latitude": 15.5,
+        "longitude": 16.5,
+        "confidence": 17
+      },
+      "expressCityDeliveries": true,
+      "monday": false,
+      "tuesday": true,
+      "wednesday": false,
+      "thursday": true,
+      "friday": false,
+      "saturday": true,
+      "sunday": false,
+      "serviceDays": 26,
+      "zoneId": 0,
+      "zoneName": "Synthetic example 28",
+      "zoneNameEn": "Synthetic example 29",
+      "servingOffices": [
+        {
+          "officeCode": "Synthetic example 30",
+          "servingType": "Synthetic example 31"
+        }
+      ]
+    },
+    "fullAddress": "Synthetic example 32",
+    "fullAddressEn": "Synthetic example 33",
+    "quarter": "Synthetic example 34",
+    "street": "Synthetic example 35",
+    "num": "Synthetic example 36",
+    "other": "Synthetic example 37",
+    "location": {
+      "latitude": 38.5,
+      "longitude": 39.5,
+      "confidence": 40
+    },
+    "zip": "Synthetic example 41",
+    "hezid": "Synthetic example 42"
+  },
+  "validationStatus": "Synthetic example 43",
+  "serviceInfo": {
+    "allowedPacksCourierRequest": true,
+    "deliveryPacksExtraDelayDays": 0,
+    "allowedCargoCourierRequest": true,
+    "deliveryCargoExtraDelayDays": 47,
+    "allowedPalletCourierRequest": true,
+    "deliveryPalletExtraDelayDays": 49
+  }
+}

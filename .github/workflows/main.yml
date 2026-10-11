@@ -1,0 +1,41 @@
+name: Ruby
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Ruby ${{ matrix.ruby }}
+    strategy:
+      matrix:
+        ruby:
+          - '3.3'
+          - '3.4'
+          - '4.0'
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler: '4.0.22'
+        bundler-cache: true
+    - name: Run the default task
+      run: bundle exec rake
+    - name: Replay reviewed API recordings (network disabled)
+      run: ECONT_VCR_REPLAY=1 bundle exec rspec spec/recorded_contract_spec.rb
+    - name: Validate RBS signatures
+      run: bundle exec rbs -r date -I sig validate
+    - name: Build and load the packaged gem
+      run: bin/package_smoke_test
+    - name: Verify release tag matches gem version
+      if: github.ref_type == 'tag'
+      run: bin/check_release_tag "${GITHUB_REF_NAME}"

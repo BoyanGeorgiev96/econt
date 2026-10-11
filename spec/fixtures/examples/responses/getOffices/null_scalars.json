@@ -1,0 +1,89 @@
+{
+  "offices": [
+    {
+      "id": null,
+      "code": null,
+      "isMPS": null,
+      "isAPS": null,
+      "name": null,
+      "nameEn": null,
+      "phones": [
+        null
+      ],
+      "emails": [
+        null
+      ],
+      "address": {
+        "id": null,
+        "city": {
+          "id": null,
+          "country": {
+            "id": null,
+            "code2": null,
+            "code3": null,
+            "name": null,
+            "nameEn": null,
+            "isEU": null
+          },
+          "postCode": null,
+          "name": null,
+          "nameEn": null,
+          "regionName": null,
+          "regionNameEn": null,
+          "phoneCode": null,
+          "location": {
+            "latitude": null,
+            "longitude": null,
+            "confidence": null
+          },
+          "expressCityDeliveries": null,
+          "monday": null,
+          "tuesday": null,
+          "wednesday": null,
+          "thursday": null,
+          "friday": null,
+          "saturday": null,
+          "sunday": null,
+          "serviceDays": null,
+          "zoneId": null,
+          "zoneName": null,
+          "zoneNameEn": null,
+          "servingOffices": [
+            {
+              "officeCode": null,
+              "servingType": null
+            }
+          ]
+        },
+        "fullAddress": null,
+        "fullAddressEn": null,
+        "quarter": null,
+        "street": null,
+        "num": null,
+        "other": null,
+        "location": {
+          "latitude": null,
+          "longitude": null,
+          "confidence": null
+        },
+        "zip": null,
+        "hezid": null
+      },
+      "info": null,
+      "currency": null,
+      "language": null,
+      "normalBusinessHoursFrom": null,
+      "normalBusinessHoursTo": null,
+      "halfDayBusinessHoursFrom": null,
+      "halfDayBusinessHoursTo": null,
+      "shipmentTypes": [
+        null
+      ],
+      "partnerCode": null,
+      "hubCode": null,
+      "hubName": null,
+      "hubNameEn": null,
+      "isDrive": null
+    }
+  ]
+}

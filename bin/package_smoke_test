@@ -1,0 +1,93 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'fileutils'
+require 'open3'
+require 'rubygems/package'
+require 'tmpdir'
+require 'bundler/setup'
+
+root = File.expand_path('..', __dir__)
+spec = Gem::Specification.load(File.join(root, 'econt.gemspec'))
+abort 'Could not load econt.gemspec' unless spec
+
+# Bundler may install dependencies outside the ordinary RubyGems search paths.
+dependency_paths = Bundler.load.specs.reject { |dependency| dependency.name == spec.name }.map(&:base_dir)
+
+Dir.mktmpdir('econt-package-smoke') do |directory|
+  artifact = File.join(directory, "#{spec.full_name}.gem")
+  stdout, stderr, status = Open3.capture3(
+    Gem.ruby,
+    '-S',
+    'gem',
+    'build',
+    'econt.gemspec',
+    '--output',
+    artifact,
+    chdir: root
+  )
+  abort [stdout, stderr].join unless status.success?
+
+  package = Gem::Package.new(artifact)
+  packaged_files = package.spec.files
+  required_files = %w[lib/econt.rb lib/econt/version.rb README.md LICENSE.txt SECURITY.md CONTRIBUTING.md
+                      sig/econt.rbs docs/API.md docs/VCR.md docs/ENDPOINTS.md docs/PUBLIC_API.md]
+  missing_files = required_files - packaged_files
+  abort "Missing packaged files: #{missing_files.join(', ')}" unless missing_files.empty?
+
+  forbidden_files = packaged_files.grep(%r{(?:\A|/)(?:\.env(?:\..*)?|\.git|AGENTS\.md|spec|schema)(?:/|\z)})
+  abort "Forbidden packaged files: #{forbidden_files.join(', ')}" unless forbidden_files.empty?
+
+  allowed_files = %r{\A(?:lib/.+\.rb|sig/.+\.rbs|docs/.+\.md|
+    (?:README|SECURITY|CONTRIBUTING|CHANGELOG|CODE_OF_CONDUCT)\.md|LICENSE\.txt)\z}x
+  unexpected_files = packaged_files.grep_v(allowed_files)
+  abort "Unexpected packaged files: #{unexpected_files.join(', ')}" unless unexpected_files.empty?
+
+  gem_home = File.join(directory, 'gem_home')
+  stdout, stderr, status = Open3.capture3(
+    Gem.ruby,
+    '-S',
+    'gem',
+    'install',
+    artifact,
+    '--local',
+    '--ignore-dependencies',
+    '--no-document',
+    '--install-dir',
+    gem_home
+  )
+  abort [stdout, stderr].join unless status.success?
+
+  clean_environment = {
+    'BUNDLE_GEMFILE' => nil,
+    'GEM_HOME' => gem_home,
+    'GEM_PATH' => [gem_home, *dependency_paths, *Gem.path].uniq.join(File::PATH_SEPARATOR),
+    'RUBYLIB' => nil,
+    'RUBYOPT' => nil
+  }
+  stdout, stderr, status = Open3.capture3(
+    clean_environment,
+    Gem.ruby,
+    '-e',
+    <<~RUBY,
+      require 'econt'
+      installed = Gem.loaded_specs.fetch('econt')
+      expected_version = #{spec.version.to_s.inspect}
+      abort "Unexpected Econt::VERSION: \#{Econt::VERSION}" unless Econt::VERSION == expected_version
+      abort "Unexpected installed version: \#{installed.version}" unless installed.version.to_s == expected_version
+      installed_path = File.realpath(installed.full_gem_path)
+      temporary_home = File.realpath(#{gem_home.inspect}) + File::SEPARATOR
+      unless installed_path.start_with?(temporary_home)
+        abort "Loaded econt outside temporary GEM_HOME: \#{installed.full_gem_path}"
+      end
+      source_path = File.realpath($LOADED_FEATURES.find { |path| path.end_with?('/econt.rb') })
+      unless source_path.start_with?(installed_path + File::SEPARATOR)
+        abort 'Loaded source outside installed artifact'
+      end
+    RUBY
+    chdir: directory
+  )
+  abort [stdout, stderr].join unless status.success?
+
+  puts "Built, installed, and loaded #{File.basename(artifact)}"
+end

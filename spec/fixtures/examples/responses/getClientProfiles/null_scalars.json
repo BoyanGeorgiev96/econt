@@ -1,0 +1,457 @@
+{
+  "profiles": [
+    {
+      "client": {
+        "id": null,
+        "name": null,
+        "nameEn": null,
+        "phones": [
+          null
+        ],
+        "email": null,
+        "skypeAccounts": [
+          null
+        ],
+        "clientNumber": null,
+        "clientNumberEn": null,
+        "juridicalEntity": null,
+        "personalIDType": null,
+        "personalIDNumber": null,
+        "companyType": null,
+        "ein": null,
+        "ddsEinPrefix": null,
+        "ddsEin": null,
+        "registrationAddress": null,
+        "molName": null,
+        "molEGN": null,
+        "molIDNum": null
+      },
+      "addresses": [
+        {
+          "id": null,
+          "city": {
+            "id": null,
+            "country": {
+              "id": null,
+              "code2": null,
+              "code3": null,
+              "name": null,
+              "nameEn": null,
+              "isEU": null
+            },
+            "postCode": null,
+            "name": null,
+            "nameEn": null,
+            "regionName": null,
+            "regionNameEn": null,
+            "phoneCode": null,
+            "location": {
+              "latitude": null,
+              "longitude": null,
+              "confidence": null
+            },
+            "expressCityDeliveries": null,
+            "monday": null,
+            "tuesday": null,
+            "wednesday": null,
+            "thursday": null,
+            "friday": null,
+            "saturday": null,
+            "sunday": null,
+            "serviceDays": null,
+            "zoneId": null,
+            "zoneName": null,
+            "zoneNameEn": null,
+            "servingOffices": [
+              {
+                "officeCode": null,
+                "servingType": null
+              }
+            ]
+          },
+          "fullAddress": null,
+          "fullAddressEn": null,
+          "quarter": null,
+          "street": null,
+          "num": null,
+          "other": null,
+          "location": {
+            "latitude": null,
+            "longitude": null,
+            "confidence": null
+          },
+          "zip": null,
+          "hezid": null
+        }
+      ],
+      "cdPayOptions": [
+        {
+          "num": null,
+          "client": {
+            "id": null,
+            "name": null,
+            "nameEn": null,
+            "phones": [
+              null
+            ],
+            "email": null,
+            "skypeAccounts": [
+              null
+            ],
+            "clientNumber": null,
+            "clientNumberEn": null,
+            "juridicalEntity": null,
+            "personalIDType": null,
+            "personalIDNumber": null,
+            "companyType": null,
+            "ein": null,
+            "ddsEinPrefix": null,
+            "ddsEin": null,
+            "registrationAddress": null,
+            "molName": null,
+            "molEGN": null,
+            "molIDNum": null
+          },
+          "moneyTransfer": null,
+          "express": null,
+          "method": null,
+          "address": {
+            "id": null,
+            "city": {
+              "id": null,
+              "country": {
+                "id": null,
+                "code2": null,
+                "code3": null,
+                "name": null,
+                "nameEn": null,
+                "isEU": null
+              },
+              "postCode": null,
+              "name": null,
+              "nameEn": null,
+              "regionName": null,
+              "regionNameEn": null,
+              "phoneCode": null,
+              "location": {
+                "latitude": null,
+                "longitude": null,
+                "confidence": null
+              },
+              "expressCityDeliveries": null,
+              "monday": null,
+              "tuesday": null,
+              "wednesday": null,
+              "thursday": null,
+              "friday": null,
+              "saturday": null,
+              "sunday": null,
+              "serviceDays": null,
+              "zoneId": null,
+              "zoneName": null,
+              "zoneNameEn": null,
+              "servingOffices": [
+                {
+                  "officeCode": null,
+                  "servingType": null
+                }
+              ]
+            },
+            "fullAddress": null,
+            "fullAddressEn": null,
+            "quarter": null,
+            "street": null,
+            "num": null,
+            "other": null,
+            "location": {
+              "latitude": null,
+              "longitude": null,
+              "confidence": null
+            },
+            "zip": null,
+            "hezid": null
+          },
+          "officeCode": null,
+          "IBAN": null,
+          "BIC": null,
+          "bankCurrency": null,
+          "payDays": [
+            null
+          ],
+          "payWeekdays": [
+            null
+          ],
+          "additionalInstructions": null,
+          "departamentNum": null
+        }
+      ],
+      "instructionTemplates": [
+        {
+          "id": null,
+          "type": null,
+          "title": null,
+          "attachments": [
+            {
+              "id": null,
+              "filename": null,
+              "mimeType": null,
+              "URL": null,
+              "content": null
+            }
+          ],
+          "voiceDescription": {
+            "id": null,
+            "filename": null,
+            "mimeType": null,
+            "URL": null,
+            "content": null
+          },
+          "returnInstructionParams": {
+            "returnParcelDestination": null,
+            "returnParcelIsDocument": null,
+            "returnParcelIsEmptyPallet": null,
+            "emptyPalletEuro": null,
+            "emptyPallet80": null,
+            "emptyPallet100": null,
+            "emptyPallet120": null,
+            "daysUntilReturn": null,
+            "returnParcelPaymentSide": null,
+            "returnParcelReceiverClient": {
+              "id": null,
+              "name": null,
+              "nameEn": null,
+              "phones": [
+                null
+              ],
+              "email": null,
+              "skypeAccounts": [
+                null
+              ],
+              "clientNumber": null,
+              "clientNumberEn": null,
+              "juridicalEntity": null,
+              "personalIDType": null,
+              "personalIDNumber": null,
+              "companyType": null,
+              "ein": null,
+              "ddsEinPrefix": null,
+              "ddsEin": null,
+              "registrationAddress": null,
+              "molName": null,
+              "molEGN": null,
+              "molIDNum": null
+            },
+            "returnParcelReceiverAgent": {
+              "id": null,
+              "name": null,
+              "nameEn": null,
+              "phones": [
+                null
+              ],
+              "email": null,
+              "skypeAccounts": [
+                null
+              ],
+              "clientNumber": null,
+              "clientNumberEn": null,
+              "juridicalEntity": null,
+              "personalIDType": null,
+              "personalIDNumber": null,
+              "companyType": null,
+              "ein": null,
+              "ddsEinPrefix": null,
+              "ddsEin": null,
+              "registrationAddress": null,
+              "molName": null,
+              "molEGN": null,
+              "molIDNum": null
+            },
+            "returnParcelReceiverOfficeCode": null,
+            "returnParcelReceiverAddress": {
+              "id": null,
+              "city": {
+                "id": null,
+                "country": {
+                  "id": null,
+                  "code2": null,
+                  "code3": null,
+                  "name": null,
+                  "nameEn": null,
+                  "isEU": null
+                },
+                "postCode": null,
+                "name": null,
+                "nameEn": null,
+                "regionName": null,
+                "regionNameEn": null,
+                "phoneCode": null,
+                "location": {
+                  "latitude": null,
+                  "longitude": null,
+                  "confidence": null
+                },
+                "expressCityDeliveries": null,
+                "monday": null,
+                "tuesday": null,
+                "wednesday": null,
+                "thursday": null,
+                "friday": null,
+                "saturday": null,
+                "sunday": null,
+                "serviceDays": null,
+                "zoneId": null,
+                "zoneName": null,
+                "zoneNameEn": null,
+                "servingOffices": [
+                  {
+                    "officeCode": null,
+                    "servingType": null
+                  }
+                ]
+              },
+              "fullAddress": null,
+              "fullAddressEn": null,
+              "quarter": null,
+              "street": null,
+              "num": null,
+              "other": null,
+              "location": {
+                "latitude": null,
+                "longitude": null,
+                "confidence": null
+              },
+              "zip": null,
+              "hezid": null
+            },
+            "printReturnParcel": null,
+            "rejectAction": null,
+            "rejectInstruction": null,
+            "rejectContact": null,
+            "rejectReturnClient": {
+              "id": null,
+              "name": null,
+              "nameEn": null,
+              "phones": [
+                null
+              ],
+              "email": null,
+              "skypeAccounts": [
+                null
+              ],
+              "clientNumber": null,
+              "clientNumberEn": null,
+              "juridicalEntity": null,
+              "personalIDType": null,
+              "personalIDNumber": null,
+              "companyType": null,
+              "ein": null,
+              "ddsEinPrefix": null,
+              "ddsEin": null,
+              "registrationAddress": null,
+              "molName": null,
+              "molEGN": null,
+              "molIDNum": null
+            },
+            "rejectReturnAgent": {
+              "id": null,
+              "name": null,
+              "nameEn": null,
+              "phones": [
+                null
+              ],
+              "email": null,
+              "skypeAccounts": [
+                null
+              ],
+              "clientNumber": null,
+              "clientNumberEn": null,
+              "juridicalEntity": null,
+              "personalIDType": null,
+              "personalIDNumber": null,
+              "companyType": null,
+              "ein": null,
+              "ddsEinPrefix": null,
+              "ddsEin": null,
+              "registrationAddress": null,
+              "molName": null,
+              "molEGN": null,
+              "molIDNum": null
+            },
+            "rejectReturnOfficeCode": null,
+            "rejectReturnAddress": {
+              "id": null,
+              "city": {
+                "id": null,
+                "country": {
+                  "id": null,
+                  "code2": null,
+                  "code3": null,
+                  "name": null,
+                  "nameEn": null,
+                  "isEU": null
+                },
+                "postCode": null,
+                "name": null,
+                "nameEn": null,
+                "regionName": null,
+                "regionNameEn": null,
+                "phoneCode": null,
+                "location": {
+                  "latitude": null,
+                  "longitude": null,
+                  "confidence": null
+                },
+                "expressCityDeliveries": null,
+                "monday": null,
+                "tuesday": null,
+                "wednesday": null,
+                "thursday": null,
+                "friday": null,
+                "saturday": null,
+                "sunday": null,
+                "serviceDays": null,
+                "zoneId": null,
+                "zoneName": null,
+                "zoneNameEn": null,
+                "servingOffices": [
+                  {
+                    "officeCode": null,
+                    "servingType": null
+                  }
+                ]
+              },
+              "fullAddress": null,
+              "fullAddressEn": null,
+              "quarter": null,
+              "street": null,
+              "num": null,
+              "other": null,
+              "location": {
+                "latitude": null,
+                "longitude": null,
+                "confidence": null
+              },
+              "zip": null,
+              "hezid": null
+            },
+            "rejectOriginalParcelPaySide": null,
+            "rejectReturnParcelPaySide": null,
+            "signatureDocuments": null,
+            "signaturePenColor": null,
+            "signatureCount": null,
+            "signaturePageNumbers": null,
+            "signatureOtherInstructions": null,
+            "executeIfRejectedWithoutReview": null,
+            "useReturnAddressForInstruction": null,
+            "executeIfNotTaken": null
+          },
+          "name": null,
+          "applyToAllParcels": null,
+          "applyToReceivers": [
+            null
+          ]
+        }
+      ]
+    }
+  ]
+}

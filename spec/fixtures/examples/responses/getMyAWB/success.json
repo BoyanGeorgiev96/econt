@@ -1,0 +1,21 @@
+{
+  "dateFrom": "2026-10-11",
+  "dateTo": "2026-10-11",
+  "page": 0,
+  "totalPages": 4,
+  "results": [
+    {
+      "shipmentNumber": "Synthetic example 5",
+      "senderName": "Synthetic example 6",
+      "status": "Synthetic example 7",
+      "createdDate": "2026-10-11T10:30:45+02:00",
+      "acceptedDate": "2026-10-11T10:30:45+02:00",
+      "cdAmount": 10.5,
+      "courierServiceAmount": 11.5,
+      "courierServiceMasterPayer": "Synthetic example 12",
+      "receiverPhone": "Synthetic example 13",
+      "cdCurrency": "Synthetic example 14",
+      "courierServiceCurrency": "Synthetic example 15"
+    }
+  ]
+}

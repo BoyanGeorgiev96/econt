@@ -1,0 +1,15 @@
+{
+  "type": "ValidationException",
+  "message": "Synthetic invalid request",
+  "fields": [
+    "cityID"
+  ],
+  "innerErrors": [
+    {
+      "type": "AddressException",
+      "message": "Synthetic invalid address",
+      "fields": [],
+      "innerErrors": []
+    }
+  ]
+}

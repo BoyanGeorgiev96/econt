@@ -1,0 +1,13 @@
+{
+  "requestCourierStatus": [
+    {
+      "status": {
+        "id": null,
+        "status": null,
+        "note": null,
+        "reject_reason": null
+      },
+      "error": null
+    }
+  ]
+}

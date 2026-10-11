@@ -1,0 +1,7 @@
+--markup markdown
+--readme README.md
+--output-dir doc
+lib/**/*.rb
+-
+docs/API.md
+docs/PUBLIC_API.md

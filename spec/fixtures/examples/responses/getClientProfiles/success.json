@@ -1,0 +1,457 @@
+{
+  "profiles": [
+    {
+      "client": {
+        "id": 1,
+        "name": "Synthetic example 2",
+        "nameEn": "Synthetic example 3",
+        "phones": [
+          "Synthetic example 4"
+        ],
+        "email": "Synthetic example 5",
+        "skypeAccounts": [
+          "Synthetic example 6"
+        ],
+        "clientNumber": "Synthetic example 7",
+        "clientNumberEn": "Synthetic example 8",
+        "juridicalEntity": false,
+        "personalIDType": "Synthetic example 10",
+        "personalIDNumber": "Synthetic example 11",
+        "companyType": "Synthetic example 12",
+        "ein": "Synthetic example 13",
+        "ddsEinPrefix": "Synthetic example 14",
+        "ddsEin": "Synthetic example 15",
+        "registrationAddress": "Synthetic example 16",
+        "molName": "Synthetic example 17",
+        "molEGN": "Synthetic example 18",
+        "molIDNum": "Synthetic example 19"
+      },
+      "addresses": [
+        {
+          "id": 20,
+          "city": {
+            "id": 0,
+            "country": {
+              "id": 22,
+              "code2": "Synthetic example 23",
+              "code3": "Synthetic example 24",
+              "name": "Synthetic example 25",
+              "nameEn": "Synthetic example 26",
+              "isEU": false
+            },
+            "postCode": "Synthetic example 28",
+            "name": "Synthetic example 29",
+            "nameEn": "Synthetic example 30",
+            "regionName": "Synthetic example 31",
+            "regionNameEn": "Synthetic example 32",
+            "phoneCode": "Synthetic example 33",
+            "location": {
+              "latitude": 34.5,
+              "longitude": 35.5,
+              "confidence": 0
+            },
+            "expressCityDeliveries": false,
+            "monday": true,
+            "tuesday": false,
+            "wednesday": true,
+            "thursday": false,
+            "friday": true,
+            "saturday": false,
+            "sunday": true,
+            "serviceDays": 0,
+            "zoneId": 46,
+            "zoneName": "Synthetic example 47",
+            "zoneNameEn": "Synthetic example 48",
+            "servingOffices": [
+              {
+                "officeCode": "Synthetic example 49",
+                "servingType": "Synthetic example 50"
+              }
+            ]
+          },
+          "fullAddress": "Synthetic example 51",
+          "fullAddressEn": "Synthetic example 52",
+          "quarter": "Synthetic example 53",
+          "street": "Synthetic example 54",
+          "num": "Synthetic example 55",
+          "other": "Synthetic example 56",
+          "location": {
+            "latitude": 57.5,
+            "longitude": 58.5,
+            "confidence": 59
+          },
+          "zip": "Synthetic example 60",
+          "hezid": "Synthetic example 61"
+        }
+      ],
+      "cdPayOptions": [
+        {
+          "num": "Synthetic example 62",
+          "client": {
+            "id": 0,
+            "name": "Synthetic example 64",
+            "nameEn": "Synthetic example 65",
+            "phones": [
+              "Synthetic example 66"
+            ],
+            "email": "Synthetic example 67",
+            "skypeAccounts": [
+              "Synthetic example 68"
+            ],
+            "clientNumber": "Synthetic example 69",
+            "clientNumberEn": "Synthetic example 70",
+            "juridicalEntity": false,
+            "personalIDType": "Synthetic example 72",
+            "personalIDNumber": "Synthetic example 73",
+            "companyType": "Synthetic example 74",
+            "ein": "Synthetic example 75",
+            "ddsEinPrefix": "Synthetic example 76",
+            "ddsEin": "Synthetic example 77",
+            "registrationAddress": "Synthetic example 78",
+            "molName": "Synthetic example 79",
+            "molEGN": "Synthetic example 80",
+            "molIDNum": "Synthetic example 81"
+          },
+          "moneyTransfer": true,
+          "express": false,
+          "method": "Synthetic example 84",
+          "address": {
+            "id": 85,
+            "city": {
+              "id": 86,
+              "country": {
+                "id": 0,
+                "code2": "Synthetic example 88",
+                "code3": "Synthetic example 89",
+                "name": "Synthetic example 90",
+                "nameEn": "Synthetic example 91",
+                "isEU": true
+              },
+              "postCode": "Synthetic example 93",
+              "name": "Synthetic example 94",
+              "nameEn": "Synthetic example 95",
+              "regionName": "Synthetic example 96",
+              "regionNameEn": "Synthetic example 97",
+              "phoneCode": "Synthetic example 98",
+              "location": {
+                "latitude": 99.5,
+                "longitude": 100.5,
+                "confidence": 101
+              },
+              "expressCityDeliveries": true,
+              "monday": false,
+              "tuesday": true,
+              "wednesday": false,
+              "thursday": true,
+              "friday": false,
+              "saturday": true,
+              "sunday": false,
+              "serviceDays": 110,
+              "zoneId": 0,
+              "zoneName": "Synthetic example 112",
+              "zoneNameEn": "Synthetic example 113",
+              "servingOffices": [
+                {
+                  "officeCode": "Synthetic example 114",
+                  "servingType": "Synthetic example 115"
+                }
+              ]
+            },
+            "fullAddress": "Synthetic example 116",
+            "fullAddressEn": "Synthetic example 117",
+            "quarter": "Synthetic example 118",
+            "street": "Synthetic example 119",
+            "num": "Synthetic example 120",
+            "other": "Synthetic example 121",
+            "location": {
+              "latitude": 122.5,
+              "longitude": 123.5,
+              "confidence": 124
+            },
+            "zip": "Synthetic example 125",
+            "hezid": "Synthetic example 126"
+          },
+          "officeCode": "Synthetic example 127",
+          "IBAN": "Synthetic example 128",
+          "BIC": "Synthetic example 129",
+          "bankCurrency": "Synthetic example 130",
+          "payDays": [
+            131
+          ],
+          "payWeekdays": [
+            "monday"
+          ],
+          "additionalInstructions": "Synthetic example 132",
+          "departamentNum": 133
+        }
+      ],
+      "instructionTemplates": [
+        {
+          "id": 134,
+          "type": "take",
+          "title": "Synthetic example 135",
+          "attachments": [
+            {
+              "id": 136,
+              "filename": "Synthetic example 137",
+              "mimeType": "Synthetic example 138",
+              "URL": "Synthetic example 139",
+              "content": "ZXhhbXBsZQ=="
+            }
+          ],
+          "voiceDescription": {
+            "id": 0,
+            "filename": "Synthetic example 142",
+            "mimeType": "Synthetic example 143",
+            "URL": "Synthetic example 144",
+            "content": "ZXhhbXBsZQ=="
+          },
+          "returnInstructionParams": {
+            "returnParcelDestination": "Synthetic example 146",
+            "returnParcelIsDocument": false,
+            "returnParcelIsEmptyPallet": true,
+            "emptyPalletEuro": 149,
+            "emptyPallet80": 0,
+            "emptyPallet100": 151,
+            "emptyPallet120": 152,
+            "daysUntilReturn": 0,
+            "returnParcelPaymentSide": "Synthetic example 154",
+            "returnParcelReceiverClient": {
+              "id": 155,
+              "name": "Synthetic example 156",
+              "nameEn": "Synthetic example 157",
+              "phones": [
+                "Synthetic example 158"
+              ],
+              "email": "Synthetic example 159",
+              "skypeAccounts": [
+                "Synthetic example 160"
+              ],
+              "clientNumber": "Synthetic example 161",
+              "clientNumberEn": "Synthetic example 162",
+              "juridicalEntity": false,
+              "personalIDType": "Synthetic example 164",
+              "personalIDNumber": "Synthetic example 165",
+              "companyType": "Synthetic example 166",
+              "ein": "Synthetic example 167",
+              "ddsEinPrefix": "Synthetic example 168",
+              "ddsEin": "Synthetic example 169",
+              "registrationAddress": "Synthetic example 170",
+              "molName": "Synthetic example 171",
+              "molEGN": "Synthetic example 172",
+              "molIDNum": "Synthetic example 173"
+            },
+            "returnParcelReceiverAgent": {
+              "id": 0,
+              "name": "Synthetic example 175",
+              "nameEn": "Synthetic example 176",
+              "phones": [
+                "Synthetic example 177"
+              ],
+              "email": "Synthetic example 178",
+              "skypeAccounts": [
+                "Synthetic example 179"
+              ],
+              "clientNumber": "Synthetic example 180",
+              "clientNumberEn": "Synthetic example 181",
+              "juridicalEntity": true,
+              "personalIDType": "Synthetic example 183",
+              "personalIDNumber": "Synthetic example 184",
+              "companyType": "Synthetic example 185",
+              "ein": "Synthetic example 186",
+              "ddsEinPrefix": "Synthetic example 187",
+              "ddsEin": "Synthetic example 188",
+              "registrationAddress": "Synthetic example 189",
+              "molName": "Synthetic example 190",
+              "molEGN": "Synthetic example 191",
+              "molIDNum": "Synthetic example 192"
+            },
+            "returnParcelReceiverOfficeCode": "Synthetic example 193",
+            "returnParcelReceiverAddress": {
+              "id": 194,
+              "city": {
+                "id": 0,
+                "country": {
+                  "id": 196,
+                  "code2": "Synthetic example 197",
+                  "code3": "Synthetic example 198",
+                  "name": "Synthetic example 199",
+                  "nameEn": "Synthetic example 200",
+                  "isEU": false
+                },
+                "postCode": "Synthetic example 202",
+                "name": "Synthetic example 203",
+                "nameEn": "Synthetic example 204",
+                "regionName": "Synthetic example 205",
+                "regionNameEn": "Synthetic example 206",
+                "phoneCode": "Synthetic example 207",
+                "location": {
+                  "latitude": 208.5,
+                  "longitude": 209.5,
+                  "confidence": 0
+                },
+                "expressCityDeliveries": false,
+                "monday": true,
+                "tuesday": false,
+                "wednesday": true,
+                "thursday": false,
+                "friday": true,
+                "saturday": false,
+                "sunday": true,
+                "serviceDays": 0,
+                "zoneId": 220,
+                "zoneName": "Synthetic example 221",
+                "zoneNameEn": "Synthetic example 222",
+                "servingOffices": [
+                  {
+                    "officeCode": "Synthetic example 223",
+                    "servingType": "Synthetic example 224"
+                  }
+                ]
+              },
+              "fullAddress": "Synthetic example 225",
+              "fullAddressEn": "Synthetic example 226",
+              "quarter": "Synthetic example 227",
+              "street": "Synthetic example 228",
+              "num": "Synthetic example 229",
+              "other": "Synthetic example 230",
+              "location": {
+                "latitude": 231.5,
+                "longitude": 232.5,
+                "confidence": 233
+              },
+              "zip": "Synthetic example 234",
+              "hezid": "Synthetic example 235"
+            },
+            "printReturnParcel": true,
+            "rejectAction": "Synthetic example 237",
+            "rejectInstruction": "Synthetic example 238",
+            "rejectContact": "Synthetic example 239",
+            "rejectReturnClient": {
+              "id": 0,
+              "name": "Synthetic example 241",
+              "nameEn": "Synthetic example 242",
+              "phones": [
+                "Synthetic example 243"
+              ],
+              "email": "Synthetic example 244",
+              "skypeAccounts": [
+                "Synthetic example 245"
+              ],
+              "clientNumber": "Synthetic example 246",
+              "clientNumberEn": "Synthetic example 247",
+              "juridicalEntity": true,
+              "personalIDType": "Synthetic example 249",
+              "personalIDNumber": "Synthetic example 250",
+              "companyType": "Synthetic example 251",
+              "ein": "Synthetic example 252",
+              "ddsEinPrefix": "Synthetic example 253",
+              "ddsEin": "Synthetic example 254",
+              "registrationAddress": "Synthetic example 255",
+              "molName": "Synthetic example 256",
+              "molEGN": "Synthetic example 257",
+              "molIDNum": "Synthetic example 258"
+            },
+            "rejectReturnAgent": {
+              "id": 259,
+              "name": "Synthetic example 260",
+              "nameEn": "Synthetic example 261",
+              "phones": [
+                "Synthetic example 262"
+              ],
+              "email": "Synthetic example 263",
+              "skypeAccounts": [
+                "Synthetic example 264"
+              ],
+              "clientNumber": "Synthetic example 265",
+              "clientNumberEn": "Synthetic example 266",
+              "juridicalEntity": false,
+              "personalIDType": "Synthetic example 268",
+              "personalIDNumber": "Synthetic example 269",
+              "companyType": "Synthetic example 270",
+              "ein": "Synthetic example 271",
+              "ddsEinPrefix": "Synthetic example 272",
+              "ddsEin": "Synthetic example 273",
+              "registrationAddress": "Synthetic example 274",
+              "molName": "Synthetic example 275",
+              "molEGN": "Synthetic example 276",
+              "molIDNum": "Synthetic example 277"
+            },
+            "rejectReturnOfficeCode": "Synthetic example 278",
+            "rejectReturnAddress": {
+              "id": 0,
+              "city": {
+                "id": 280,
+                "country": {
+                  "id": 281,
+                  "code2": "Synthetic example 282",
+                  "code3": "Synthetic example 283",
+                  "name": "Synthetic example 284",
+                  "nameEn": "Synthetic example 285",
+                  "isEU": true
+                },
+                "postCode": "Synthetic example 287",
+                "name": "Synthetic example 288",
+                "nameEn": "Synthetic example 289",
+                "regionName": "Synthetic example 290",
+                "regionNameEn": "Synthetic example 291",
+                "phoneCode": "Synthetic example 292",
+                "location": {
+                  "latitude": 293.5,
+                  "longitude": 294.5,
+                  "confidence": 295
+                },
+                "expressCityDeliveries": true,
+                "monday": false,
+                "tuesday": true,
+                "wednesday": false,
+                "thursday": true,
+                "friday": false,
+                "saturday": true,
+                "sunday": false,
+                "serviceDays": 304,
+                "zoneId": 305,
+                "zoneName": "Synthetic example 306",
+                "zoneNameEn": "Synthetic example 307",
+                "servingOffices": [
+                  {
+                    "officeCode": "Synthetic example 308",
+                    "servingType": "Synthetic example 309"
+                  }
+                ]
+              },
+              "fullAddress": "Synthetic example 310",
+              "fullAddressEn": "Synthetic example 311",
+              "quarter": "Synthetic example 312",
+              "street": "Synthetic example 313",
+              "num": "Synthetic example 314",
+              "other": "Synthetic example 315",
+              "location": {
+                "latitude": 316.5,
+                "longitude": 317.5,
+                "confidence": 0
+              },
+              "zip": "Synthetic example 319",
+              "hezid": "Synthetic example 320"
+            },
+            "rejectOriginalParcelPaySide": "Synthetic example 321",
+            "rejectReturnParcelPaySide": "Synthetic example 322",
+            "signatureDocuments": false,
+            "signaturePenColor": "Synthetic example 324",
+            "signatureCount": 325,
+            "signaturePageNumbers": "Synthetic example 326",
+            "signatureOtherInstructions": "Synthetic example 327",
+            "executeIfRejectedWithoutReview": true,
+            "useReturnAddressForInstruction": false,
+            "executeIfNotTaken": 0
+          },
+          "name": "Synthetic example 331",
+          "applyToAllParcels": true,
+          "applyToReceivers": [
+            "Synthetic example 333"
+          ]
+        }
+      ]
+    }
+  ]
+}

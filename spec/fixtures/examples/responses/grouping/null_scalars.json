@@ -1,0 +1,303 @@
+{
+  "label": {
+    "shipmentNumber": null,
+    "storageOfficeName": null,
+    "storagePersonName": null,
+    "createdTime": null,
+    "sendTime": null,
+    "deliveryTime": null,
+    "shipmentType": null,
+    "packCount": null,
+    "shipmentDescription": null,
+    "weight": null,
+    "senderDeliveryType": null,
+    "senderClient": {
+      "id": null,
+      "name": null,
+      "nameEn": null,
+      "phones": [
+        null
+      ],
+      "email": null,
+      "skypeAccounts": [
+        null
+      ],
+      "clientNumber": null,
+      "clientNumberEn": null,
+      "juridicalEntity": null,
+      "personalIDType": null,
+      "personalIDNumber": null,
+      "companyType": null,
+      "ein": null,
+      "ddsEinPrefix": null,
+      "ddsEin": null,
+      "registrationAddress": null,
+      "molName": null,
+      "molEGN": null,
+      "molIDNum": null
+    },
+    "senderAgent": {
+      "id": null,
+      "name": null,
+      "nameEn": null,
+      "phones": [
+        null
+      ],
+      "email": null,
+      "skypeAccounts": [
+        null
+      ],
+      "clientNumber": null,
+      "clientNumberEn": null,
+      "juridicalEntity": null,
+      "personalIDType": null,
+      "personalIDNumber": null,
+      "companyType": null,
+      "ein": null,
+      "ddsEinPrefix": null,
+      "ddsEin": null,
+      "registrationAddress": null,
+      "molName": null,
+      "molEGN": null,
+      "molIDNum": null
+    },
+    "senderOfficeCode": null,
+    "senderAddress": {
+      "id": null,
+      "city": {
+        "id": null,
+        "country": {
+          "id": null,
+          "code2": null,
+          "code3": null,
+          "name": null,
+          "nameEn": null,
+          "isEU": null
+        },
+        "postCode": null,
+        "name": null,
+        "nameEn": null,
+        "regionName": null,
+        "regionNameEn": null,
+        "phoneCode": null,
+        "location": {
+          "latitude": null,
+          "longitude": null,
+          "confidence": null
+        },
+        "expressCityDeliveries": null,
+        "monday": null,
+        "tuesday": null,
+        "wednesday": null,
+        "thursday": null,
+        "friday": null,
+        "saturday": null,
+        "sunday": null,
+        "serviceDays": null,
+        "zoneId": null,
+        "zoneName": null,
+        "zoneNameEn": null,
+        "servingOffices": [
+          {
+            "officeCode": null,
+            "servingType": null
+          }
+        ]
+      },
+      "fullAddress": null,
+      "fullAddressEn": null,
+      "quarter": null,
+      "street": null,
+      "num": null,
+      "other": null,
+      "location": {
+        "latitude": null,
+        "longitude": null,
+        "confidence": null
+      },
+      "zip": null,
+      "hezid": null
+    },
+    "receiverDeliveryType": null,
+    "receiverClient": {
+      "id": null,
+      "name": null,
+      "nameEn": null,
+      "phones": [
+        null
+      ],
+      "email": null,
+      "skypeAccounts": [
+        null
+      ],
+      "clientNumber": null,
+      "clientNumberEn": null,
+      "juridicalEntity": null,
+      "personalIDType": null,
+      "personalIDNumber": null,
+      "companyType": null,
+      "ein": null,
+      "ddsEinPrefix": null,
+      "ddsEin": null,
+      "registrationAddress": null,
+      "molName": null,
+      "molEGN": null,
+      "molIDNum": null
+    },
+    "receiverAgent": {
+      "id": null,
+      "name": null,
+      "nameEn": null,
+      "phones": [
+        null
+      ],
+      "email": null,
+      "skypeAccounts": [
+        null
+      ],
+      "clientNumber": null,
+      "clientNumberEn": null,
+      "juridicalEntity": null,
+      "personalIDType": null,
+      "personalIDNumber": null,
+      "companyType": null,
+      "ein": null,
+      "ddsEinPrefix": null,
+      "ddsEin": null,
+      "registrationAddress": null,
+      "molName": null,
+      "molEGN": null,
+      "molIDNum": null
+    },
+    "receiverOfficeCode": null,
+    "receiverAddress": {
+      "id": null,
+      "city": {
+        "id": null,
+        "country": {
+          "id": null,
+          "code2": null,
+          "code3": null,
+          "name": null,
+          "nameEn": null,
+          "isEU": null
+        },
+        "postCode": null,
+        "name": null,
+        "nameEn": null,
+        "regionName": null,
+        "regionNameEn": null,
+        "phoneCode": null,
+        "location": {
+          "latitude": null,
+          "longitude": null,
+          "confidence": null
+        },
+        "expressCityDeliveries": null,
+        "monday": null,
+        "tuesday": null,
+        "wednesday": null,
+        "thursday": null,
+        "friday": null,
+        "saturday": null,
+        "sunday": null,
+        "serviceDays": null,
+        "zoneId": null,
+        "zoneName": null,
+        "zoneNameEn": null,
+        "servingOffices": [
+          {
+            "officeCode": null,
+            "servingType": null
+          }
+        ]
+      },
+      "fullAddress": null,
+      "fullAddressEn": null,
+      "quarter": null,
+      "street": null,
+      "num": null,
+      "other": null,
+      "location": {
+        "latitude": null,
+        "longitude": null,
+        "confidence": null
+      },
+      "zip": null,
+      "hezid": null
+    },
+    "hubCode": null,
+    "hubName": null,
+    "hubNameEN": null,
+    "cdCollectedAmount": null,
+    "cdCollectedCurrency": null,
+    "cdCollectedTime": null,
+    "cdPaidAmount": null,
+    "cdPaidCurrency": null,
+    "cdPaidTime": null,
+    "totalPrice": null,
+    "currency": null,
+    "discountPercent": null,
+    "discountAmount": null,
+    "discountDescription": null,
+    "senderDueAmount": null,
+    "receiverDueAmount": null,
+    "otherDueAmount": null,
+    "deliveryAttemptCount": null,
+    "previousShipmentNumber": null,
+    "services": [
+      {
+        "type": null,
+        "count": null,
+        "paymentSide": null,
+        "price": null,
+        "currency": null
+      }
+    ],
+    "lastProcessedInstruction": null,
+    "nextShipments": [
+      {
+        "shipmentNumber": null,
+        "reason": null,
+        "pdfURL": null
+      }
+    ],
+    "trackingEvents": [
+      {
+        "isReceipt": null,
+        "destinationType": null,
+        "destinationDetails": null,
+        "destinationDetailsEn": null,
+        "officeName": null,
+        "officeNameEn": null,
+        "cityName": null,
+        "cityNameEn": null,
+        "countryCode": null,
+        "officeCode": null,
+        "time": null
+      }
+    ],
+    "pdfURL": null,
+    "expectedDeliveryDate": null,
+    "returnShipmentURL": null,
+    "rejectOriginalParcelPaySide": null,
+    "rejectReturnParcelPaySide": null,
+    "shipmentEdition": {
+      "shipmentNum": null,
+      "editionNum": null,
+      "editionType": null,
+      "editionError": null,
+      "price": null,
+      "currency": null
+    },
+    "previousShipment": {
+      "shipmentNumber": null,
+      "reason": null,
+      "pdfURL": null
+    },
+    "warnings": null,
+    "shortDeliveryStatus": null,
+    "shortDeliveryStatusEn": null,
+    "routingCode": null
+  }
+}

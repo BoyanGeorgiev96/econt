@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/econt/version'
+
+tag = ARGV.fetch(0) do
+  warn 'Usage: bin/check_release_tag vVERSION'
+  exit 64
+end
+expected = "v#{Econt::VERSION}"
+
+abort "Release tag #{tag.inspect} does not match gem version #{expected.inspect}" unless tag == expected
+
+puts "Release tag #{tag} matches Econt::VERSION"
