@@ -9,9 +9,13 @@ on:
 
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     name: Ruby ${{ matrix.ruby }}
     strategy:
       matrix:
@@ -21,9 +25,11 @@ jobs:
           - '4.0'
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      with:
+        persist-credentials: false
     - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@e81a8fa391b11a595c1b7ed84177cc0fe02faf83 # v1
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler: '4.0.22'
