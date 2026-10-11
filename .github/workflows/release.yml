@@ -17,16 +17,18 @@ jobs:
       github.event.inputs.confirmation == 'publish' &&
       vars.RUBYGEMS_TRUSTED_PUBLISHING_ENABLED == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     environment: release
     permissions:
       contents: write
       id-token: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
-      - uses: ruby/setup-ruby@v1
+          persist-credentials: false
+      - uses: ruby/setup-ruby@e81a8fa391b11a595c1b7ed84177cc0fe02faf83 # v1
         with:
           ruby-version: '4.0'
           bundler: '4.0.22'
@@ -37,4 +39,4 @@ jobs:
           bundle exec rake
           bundle exec rbs -r date -I sig validate
           bin/package_smoke_test
-      - uses: rubygems/release-gem@v1
+      - uses: rubygems/release-gem@7f9650160c1a4e7989fdc9855807bdbd421d8b6b # v1
