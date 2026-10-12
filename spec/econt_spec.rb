@@ -5,8 +5,8 @@ RSpec.describe Econt do
     expect(Econt::VERSION).not_to be nil
   end
 
-  it 'uses Econt\'s HTTP demo endpoint by default' do
-    expect(Econt::Client.new.base_url).to eq('http://demo.econt.com/ee/services/')
+  it 'uses Econt\'s HTTPS demo endpoint by default' do
+    expect(Econt::Client.new.base_url).to eq('https://demo.econt.com/ee/services/')
   end
 
   it 'configures bounded network timeouts' do
@@ -18,6 +18,7 @@ RSpec.describe Econt do
     client.write_timeout = 6
     client.setup_connection!
 
+    expect(client.connection.ssl.verify).to be true
     expect(client.connection.options).to have_attributes(
       open_timeout: 4,
       timeout: 5,
@@ -33,10 +34,13 @@ RSpec.describe Econt do
 
     request = stub_request(
       :post,
-      'http://demo.econt.com/ee/services/Nomenclatures/NomenclaturesService.getCountries.json'
+      'https://demo.econt.com/ee/services/Nomenclatures/NomenclaturesService.getCountries.json'
     ).with(
       body: '{}',
-      headers: { 'Content-Type' => 'application/json' }
+      headers: {
+        'Content-Type' => 'application/json',
+        'Authorization' => "Basic #{Base64.strict_encode64('user:pass')}"
+      }
     ).to_return(
       status: 200,
       body: '{"countries":[]}',
@@ -415,7 +419,7 @@ RSpec.describe Econt do
     client.debug_logger = Logger.new(output)
     client.setup_connection!
 
-    stub_request(:post, 'http://demo.econt.com/ee/services/debug')
+    stub_request(:post, 'https://demo.econt.com/ee/services/debug')
       .to_return(status: 200, body: '{"customer":"private-name"}', headers: { 'Content-Type' => 'application/json' })
 
     client.connection.post('debug', customer: 'private-name')
@@ -434,7 +438,7 @@ RSpec.describe Econt do
     client.debug_logger = Logger.new(output)
     client.setup_connection!
 
-    stub_request(:post, 'http://demo.econt.com/ee/services/debug')
+    stub_request(:post, 'https://demo.econt.com/ee/services/debug')
       .to_return(status: 200, body: '{"customer":"private-name"}', headers: { 'Content-Type' => 'application/json' })
 
     client.connection.post('debug', customer: 'private-name')

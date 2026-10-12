@@ -62,7 +62,7 @@ RSpec.describe 'endpoint response properties' do
         service = ResponseExamples::SERVICES.fetch(service_key).new(client: client)
         variant = null_scalars ? 'null_scalars' : 'success'
         raw = response_example("#{endpoint}/#{variant}")
-        stub_request(:post, "http://demo.econt.com/ee/services#{path}")
+        stub_request(:post, "https://demo.econt.com/ee/services#{path}")
           .to_return(status: 200, body: JSON.generate(raw), headers: { 'Content-Type' => 'application/json' })
         result = endpoint == 'validateAddress' ? service.validate_address({}) : service.public_send(method, **arguments)
         assert_endpoint_properties(result, raw, schema, unwrap)
@@ -78,7 +78,7 @@ RSpec.describe 'endpoint response properties' do
       client.setup_connection!
       service = ResponseExamples::SERVICES.fetch(service_key).new(client: client)
       raw = response_example('error')
-      stub_request(:post, "http://demo.econt.com/ee/services#{path}")
+      stub_request(:post, "https://demo.econt.com/ee/services#{path}")
         .to_return(status: 400, body: JSON.generate(raw), headers: { 'Content-Type' => 'application/json' })
       result = endpoint == 'validateAddress' ? service.validate_address({}) : service.public_send(method, **arguments)
       if endpoint == 'setITUCode'
@@ -106,7 +106,7 @@ RSpec.describe 'endpoint response properties' do
               { regionName: 'Варна', regionNameEn: 'Varna' },
               { regionName: 'Пловдив', regionNameEn: 'Plovdiv' },
               { regionName: nil, regionNameEn: nil }]
-    stub_request(:post, 'http://demo.econt.com/ee/services/Nomenclatures/NomenclaturesService.getCities.json')
+    stub_request(:post, 'https://demo.econt.com/ee/services/Nomenclatures/NomenclaturesService.getCities.json')
       .to_return(status: 200, body: JSON.generate(cities: cities), headers: { 'Content-Type' => 'application/json' })
     expect(service.get_regions(country_code: 'BGR')).to eq(%w[Варна Пловдив])
     expect(service.get_regions(country_code: 'BGR', language: 'en')).to eq(%w[Plovdiv Varna])

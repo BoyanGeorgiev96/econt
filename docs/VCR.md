@@ -14,6 +14,10 @@ overridden. WebMock also disables network connections. The replay spec is
 separate from the opt-in recording suite, so account-specific recording settings
 cannot silently skip CI coverage.
 
+Existing reviewed cassettes were recorded over HTTP. Replay explicitly uses
+that historical base URL with all network access blocked; the recordings are
+not relabeled as HTTPS evidence. New demo recordings default to HTTPS.
+
 Each endpoint has an independent cassette so a failed recording can be removed
 and retried without discarding unrelated evidence.
 

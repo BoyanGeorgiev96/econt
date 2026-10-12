@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    econt (0.1.0)
+    econt (0.1.1)
       base64 (~> 0.3)
       faraday (>= 2.14, < 3.0)
 

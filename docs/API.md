@@ -33,7 +33,7 @@ logistics = Econt::Services::ThreeWayLogistics::ThreeWayLogistics.new
 
 Signatures show Ruby defaults, not carrier requirements: an optional `nil`
 or empty array does **not** mean the API accepts an incomplete request. Supply
-the business fields required by the [official EEcont documentation](http://ee.econt.com/services/).
+the business fields required by the [official EEcont documentation](https://ee.econt.com/services/).
 Nested hashes use snake_case except the legacy three-way logistics operation.
 
 Examples are independent snippets, not a script to execute wholesale.
@@ -550,7 +550,7 @@ result = logistics.three_way_logistics(**logistics_payload)
 ## Payload and model details
 
 For nested request fields, consult the corresponding operation and model on the
-[official service index](http://ee.econt.com/services/): `ShippingLabel`,
+[official service index](https://ee.econt.com/services/): `ShippingLabel`,
 `Address`, `ClientProfile`, `CDPayOptions`, `PaymentInstruction`,
 `PaymentAdditionPrice`, and `ThreeWayLogisticsRequest`.
 The gem forwards supplied request fields; it does not perform full business validation.

@@ -27,7 +27,7 @@ module Econt
                   :open_timeout, :read_timeout, :write_timeout
 
     def initialize
-      @base_url = 'http://demo.econt.com/ee/services/' # Default to demo
+      @base_url = 'https://demo.econt.com/ee/services/' # Default to demo
       @adapter = Faraday.default_adapter
       @acronyms = {} # nil to disable, {} to keep defaults
       @replace_acronym_defaults = false
@@ -46,7 +46,7 @@ module Econt
     def setup_connection!
       validate_credentials!
 
-      @connection = Faraday.new(base_url) do |conn|
+      @connection = Faraday.new(base_url, ssl: { verify: true }) do |conn|
         configure_timeouts(conn)
         conn.use Econt::CamelCaseMiddleware,
                  acronyms: @acronyms,
