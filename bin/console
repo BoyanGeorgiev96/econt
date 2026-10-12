@@ -9,7 +9,7 @@ require 'irb'
 Econt::Client.configure do |config|
   config.username = ENV.fetch('ECONT_USERNAME')
   config.password = ENV.fetch('ECONT_PASSWORD')
-  config.base_url = ENV.fetch('ECONT_BASE_URL', 'http://demo.econt.com/ee/services/')
+  config.base_url = ENV.fetch('ECONT_BASE_URL', 'https://demo.econt.com/ee/services/')
 end
 
 IRB.start

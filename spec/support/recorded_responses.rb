@@ -23,6 +23,8 @@ module RecordedResponses
 
   def replay_client
     client = Econt::Client.new
+    # Preserve the transport used by the reviewed historical recordings.
+    client.base_url = 'http://demo.econt.com/ee/services/'
     client.username = 'cassette-replay'
     client.password = 'cassette-replay'
     client.setup_connection!

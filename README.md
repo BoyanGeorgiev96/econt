@@ -6,7 +6,7 @@ typed responses, Basic authentication, and configurable timeouts.
 Only JSON endpoints are supported; SOAP is not supported.
 
 Community maintained; not affiliated with or endorsed by Econt.
-See the [official API documentation](http://ee.econt.com/services/) for account
+See the [official API documentation](https://ee.econt.com/services/) for account
 access and required fields.
 
 ## Installation
@@ -24,18 +24,21 @@ Econt::Client.configure do |config|
   config.username = ENV.fetch('ECONT_USERNAME')
   config.password = ENV.fetch('ECONT_PASSWORD')
   # Demo is the default. Use this URL for production:
-  config.base_url = 'http://ee.econt.com/services/'
+  config.base_url = 'https://ee.econt.com/services/'
   config.open_timeout = 10
   config.read_timeout = 30
   config.write_timeout = 30
 end
 ```
 
-**Transport warning:** Econt documents HTTP service endpoints. Basic credentials
-and shipment data are transmitted without TLS. Use a trusted server-side network
-path and assess this risk before production use; never call the API from browser
-code. Demo uses `http://demo.econt.com/ee/services/`, with separate credentials.
-The client does not replace documented URLs with HTTPS.
+The default demo URL is `https://demo.econt.com/ee/services/`; production uses
+`https://ee.econt.com/services/`, with separate credentials. Econt's documentation
+lists HTTP example URLs but explicitly permits SSL connections with Basic
+authentication. Authentication using client SSL certificates is not supported;
+this is separate from HTTPS transport. Use HTTPS to protect credentials and
+shipment data in transit, and keep requests server-side. TLS certificate
+verification is enabled by default; TLS failures do not trigger an HTTP fallback.
+An explicitly configured HTTP URL is still accepted but sends data without TLS.
 
 ### Rails initializer
 
@@ -44,7 +47,7 @@ The client does not replace documented URLs with HTTPS.
 Econt::Client.configure do |config|
   config.username = Rails.application.credentials.dig(:econt, :username)
   config.password = Rails.application.credentials.dig(:econt, :password)
-  config.base_url = ENV.fetch('ECONT_BASE_URL', 'http://demo.econt.com/ee/services/')
+  config.base_url = ENV.fetch('ECONT_BASE_URL', 'https://demo.econt.com/ee/services/')
 end
 ```
 

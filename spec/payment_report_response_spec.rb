@@ -16,7 +16,7 @@ RSpec.describe Econt::Services::PaymentReport::PaymentReport do
     end
   end
   let(:service) { described_class.new(client: client) }
-  let(:url) { 'http://demo.econt.com/ee/services/PaymentReport/PaymentReportService.PaymentReport.json' }
+  let(:url) { 'https://demo.econt.com/ee/services/PaymentReport/PaymentReportService.PaymentReport.json' }
 
   it 'unwraps the real response envelope into typed rows with accessible properties' do
     rows = [response_example('PaymentReport/success'), response_example('PaymentReport/null_scalars')]

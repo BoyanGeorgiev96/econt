@@ -15,17 +15,21 @@ has taken place.
 Only the latest released version receives security fixes. Pull requests are
 welcome after coordinated disclosure.
 
-## Econt transport limitation
+## HTTPS transport and credentials
 
-Econt documents its demo and production service URLs as HTTP endpoints using
-HTTP Basic authentication. Consequently, credentials and shipment data are not
-protected by TLS in transit. This gem preserves those documented URLs and does
-not claim to solve that carrier-side limitation.
+The client defaults to `https://demo.econt.com/ee/services/`. Use
+`https://ee.econt.com/services/` for production. Econt's documentation lists HTTP
+example URLs but explicitly supports SSL connections with Basic authentication.
+The lack of client-certificate authentication does not mean HTTPS is unavailable.
 
-Run requests only from trusted server-side infrastructure and through a network
-path whose risks you accept. Never call Econt directly from browser code. Keep
-credentials out of source control, rotate them if exposed, and limit access to
-application logs and VCR cassettes.
+TLS certificate verification is enabled by default. The client does not fall
+back to HTTP when TLS fails. Explicit HTTP base URLs remain configurable for
+compatibility, but they transmit credentials and shipment data without TLS.
+Use HTTPS and do not disable certificate verification.
+
+Run requests only from server-side infrastructure. Never call Econt directly
+from browser code. Keep credentials out of source control, rotate them if
+exposed, and limit access to application logs and VCR cassettes.
 
 Debug mode filters the configured username, password, and Basic token. Request
 and response bodies are disabled by default because they may contain personal

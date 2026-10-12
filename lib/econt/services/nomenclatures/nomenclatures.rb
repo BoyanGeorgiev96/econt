@@ -19,7 +19,7 @@ module Econt
         def get_countries
           response = post('getCountries')
           collection(response, Econt::Models::Nomenclatures::Country)
-          # http://ee.econt.com/services/Nomenclatures/NomenclaturesService.getCountries.json(.soap?wsdl)
+          # https://ee.econt.com/services/Nomenclatures/NomenclaturesService.getCountries.json(.soap?wsdl)
         end
 
         # List cities for a country.
@@ -36,7 +36,7 @@ module Econt
         def get_cities(country_code:)
           response = post('getCities', body: { country_code: country_code })
           collection(response, Econt::Models::Nomenclatures::City)
-          # http://ee.econt.com/services/Nomenclatures/NomenclaturesService.getCities.json(.soap?wsdl)
+          # https://ee.econt.com/services/Nomenclatures/NomenclaturesService.getCities.json(.soap?wsdl)
         end
 
         # Fetch cities and derive unique, sorted region names; this is a local helper, not a separate endpoint.
@@ -80,7 +80,7 @@ module Econt
                             serving_receptions: serving_receptions
                           })
           collection(response, Econt::Models::Nomenclatures::Office)
-          # http://ee.econt.com/services/Nomenclatures/NomenclaturesService.getOffices.json(.soap?wsdl)
+          # https://ee.econt.com/services/Nomenclatures/NomenclaturesService.getOffices.json(.soap?wsdl)
         end
 
         # List streets, optionally restricted to a city.
@@ -97,7 +97,7 @@ module Econt
         def get_streets(city_id: nil)
           response = post('getStreets', body: { city_id: city_id })
           collection(response, Econt::Models::Nomenclatures::Street)
-          # http://ee.econt.com/services/Nomenclatures/NomenclaturesService.getStreets.json(.soap?wsdl)
+          # https://ee.econt.com/services/Nomenclatures/NomenclaturesService.getStreets.json(.soap?wsdl)
         end
 
         # List quarters, optionally restricted to a city.
@@ -114,7 +114,7 @@ module Econt
         def get_quarters(city_id: nil)
           response = post('getQuarters', body: { city_id: city_id })
           collection(response, Econt::Models::Nomenclatures::Quarter)
-          # http://ee.econt.com/services/Nomenclatures/NomenclaturesService.getQuarters.json(.soap?wsdl)
+          # https://ee.econt.com/services/Nomenclatures/NomenclaturesService.getQuarters.json(.soap?wsdl)
         end
       end
     end
